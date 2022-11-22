@@ -1,0 +1,18 @@
+@import url(./common.css);
+@mixin box($color: black) {
+    border: 1px solid $color;
+    box-sizing: border-box;
+}
+
+
+div.main-inner{
+    width: 70%;
+
+    margin: 50px auto;
+    h2{
+        text-align: center;
+        font-size: 60px;
+        letter-spacing: 5px;
+        margin: 130px 0;
+    }
+}

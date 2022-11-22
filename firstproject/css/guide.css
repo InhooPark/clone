@@ -1,0 +1,44 @@
+@import url(./common.css);
+div.main-inner {
+  width: 70%;
+  margin: 50px auto;
+}
+div.main-inner h2 {
+  text-align: center;
+  font-size: 60px;
+  letter-spacing: 5px;
+  margin: 130px 0;
+}
+div.main-inner h4 {
+  font-size: 24px;
+  line-height: 3;
+}
+div.main-inner * table {
+  width: 100%;
+  margin-bottom: 30px;
+  border-top: 2px solid black;
+  text-align: center;
+}
+div.main-inner * table tr,
+div.main-inner * table th,
+div.main-inner * table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  vertical-align: middle;
+}
+div.main-inner * table th {
+  font-weight: 400;
+}
+div.main-inner * table td {
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+div.main-inner div.view-time table tr td span {
+  color: red;
+}
+div.main-inner div.view-time table tr td b {
+  font-weight: bold;
+  font-size: 20px;
+}
+div.main-inner div.view-program table tr.color-title {
+  background: rgba(0, 0, 0, 0.05);
+}/*# sourceMappingURL=guide.css.map */

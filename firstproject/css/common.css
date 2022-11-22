@@ -1,0 +1,414 @@
+@charset "UTF-8";
+@import url(./reset.css);
+* {
+  box-sizing: border-box;
+}
+
+/*header*/
+header {
+  width: 100%;
+  height: 100px;
+}
+header div.head-menu {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 100;
+}
+header div.head-menu div.top-menu {
+  height: 100%;
+}
+header div.head-menu div.top-menu div.logo {
+  float: left;
+  height: 55px;
+  margin: 23px 0 22px;
+}
+header div.head-menu div.top-menu div.logo img {
+  height: 100%;
+}
+header div.head-menu div.top-menu div.sub-menu {
+  float: right;
+  height: 100%;
+}
+header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list {
+  display: inline-block;
+  line-height: 100px;
+  vertical-align: middle;
+}
+header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li {
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+}
+header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 5px;
+  width: 1px;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li:last-child::after {
+  display: none;
+}
+header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li:last-child select {
+  border: none;
+  padding: 0 20px;
+  border-radius: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; /*화살표 지우기*/
+  padding: 0 24px 0 12px;
+  background: url(../images/common/ic-dropdown-black-12-dp.svg) no-repeat;
+  background-size: 10px;
+  background-position: right;
+}
+header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li:last-child select:focus {
+  outline: none;
+}
+header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li a {
+  font-size: 14px;
+  font-weight: 500;
+}
+header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li a.mlink img {
+  width: 12px;
+  transform: translateY(1px);
+}
+header div.head-menu div.top-menu div.sub-menu a.burger {
+  width: 40px;
+  height: 40px;
+  background-color: #1F5153;
+  display: inline-block;
+  line-height: 100px;
+  vertical-align: middle;
+}
+header div.head-menu div.top-menu div.sub-menu a.burger div.burger-wrap {
+  position: relative;
+  width: 20px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+header div.head-menu div.top-menu div.sub-menu a.burger div.burger-wrap span {
+  width: 18px;
+  height: 1px;
+  background-color: white;
+  display: block;
+  transition: 200ms;
+  position: absolute;
+}
+header div.head-menu div.top-menu div.sub-menu a.burger div.burger-wrap span:nth-child(1) {
+  top: 0;
+}
+header div.head-menu div.top-menu div.sub-menu a.burger div.burger-wrap span:nth-child(2) {
+  top: 50%;
+}
+header div.head-menu div.top-menu div.sub-menu a.burger div.burger-wrap span:nth-child(3) {
+  top: 100%;
+}
+header div.head-menu div.top-menu div.sub-menu a.burger:hover div span:nth-child(1) {
+  transform: rotate(-45deg);
+  top: 50%;
+}
+header div.head-menu div.top-menu div.sub-menu a.burger:hover div span:nth-child(2) {
+  transform: scale(0);
+}
+header div.head-menu div.top-menu div.sub-menu a.burger:hover div span:nth-child(3) {
+  transform: rotate(45deg);
+  top: 50%;
+}
+header div.head-menu div.main-menu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 100px;
+  width: 40%;
+}
+header div.head-menu div.main-menu > ul {
+  display: flex;
+  justify-content: space-around;
+}
+header div.head-menu div.main-menu > ul > li {
+  position: relative;
+  width: 16%;
+  text-align: center;
+}
+header div.head-menu div.main-menu > ul > li > a {
+  padding: 36px 0 37px;
+  font-size: 18px;
+  font-weight: 500;
+}
+header div.head-menu div.main-menu > ul > li > ul {
+  display: none;
+  position: absolute;
+  top: 101px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  line-height: normal;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: white;
+  color: black;
+}
+header div.head-menu div.main-menu > ul > li > ul li {
+  text-align: left;
+}
+header div.head-menu div.main-menu > ul > li > ul li a {
+  padding: 20px 24px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  transition: 400ms;
+}
+header div.head-menu div.main-menu > ul > li > ul li:hover a {
+  background: #1F5153;
+  color: white;
+  /* 해당 페이지에서는 전환이 ON 되어있게 만들면 좋겠다. */
+}
+header div.head-menu div.main-menu > ul > li:hover ul {
+  display: block;
+}
+
+/*header*/
+/*subpage header*/
+div.subpage-header {
+  /* 
+  position: fixed;
+  top: 0; 
+  스크립트 연동해서 y좌표 100이상일경우 position:fixed, top:0 고정해야함
+  */
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background: white;
+}
+div.subpage-header div.subpage-header-inner {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+div.subpage-header div.subpage-header-inner ul {
+  height: 100%;
+}
+div.subpage-header div.subpage-header-inner ul li {
+  float: left;
+  display: block;
+  height: 100%;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+div.subpage-header div.subpage-header-inner ul li.homeicon {
+  width: 50px;
+}
+div.subpage-header div.subpage-header-inner ul li.homeicon a {
+  display: block;
+  text-align: center;
+  line-height: 50px;
+  height: 100%;
+}
+div.subpage-header div.subpage-header-inner ul li.homeicon a img {
+  width: 14px;
+}
+div.subpage-header div.subpage-header-inner ul li.main-category {
+  width: 160px;
+  height: 100%;
+}
+div.subpage-header div.subpage-header-inner ul li.main-category a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  padding: 0 10px;
+  background: url(../images/common/ic-dropdown-black-12-dp.svg) no-repeat;
+  background-size: 10px;
+  background-position: center right 5%;
+}
+div.subpage-header div.subpage-header-inner ul li.sub-category {
+  width: 160px;
+  height: 100%;
+}
+div.subpage-header div.subpage-header-inner ul li.sub-category a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  padding: 0 10px;
+  background: url(../images/common/ic-dropdown-black-12-dp.svg) no-repeat;
+  background-size: 10px;
+  background-position: center right 5%;
+}
+
+/*내용 추가해야함*/
+/*subpage header*/
+/*footer*/
+/*newsletter*/
+/*뉴스레터 위쪽에 줄 넣어야함*/
+div.newsletter {
+  text-align: center;
+  margin: 80px 0;
+  line-height: 50px;
+}
+div.newsletter::before {
+  content: "";
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+}
+div.newsletter h2 {
+  font-size: 30px;
+}
+div.newsletter div.subscription {
+  width: 22%;
+  height: 40px;
+  margin: 0 auto;
+  line-height: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 0;
+}
+div.newsletter div.subscription input {
+  border: none;
+  width: 70%;
+  height: 100%;
+  background: transparent;
+  font-size: 16px;
+  text-indent: 5%;
+}
+div.newsletter div.subscription input:focus {
+  outline: none;
+}
+div.newsletter div.subscription button {
+  display: inline;
+  border: none;
+  padding: 0;
+  width: 30%;
+  height: 100%;
+  background: #1F5153;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+/*newsletter*/
+footer {
+  margin-top: 100px;
+  padding: 65px 10%;
+  background: black;
+}
+footer div.top-foot {
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+footer div.top-foot div.tf-left {
+  height: 100%;
+}
+footer div.top-foot div.tf-left a {
+  margin-right: 30px;
+}
+footer div.top-foot div.tf-left a img {
+  height: 100%;
+}
+footer div.top-foot div.tf-right {
+  display: flex;
+  align-items: flex-end;
+}
+footer div.top-foot div.tf-right div.tf-right-wrap ul li {
+  margin-right: 20px;
+  display: inline;
+}
+footer div.top-foot div.tf-right div.tf-right-wrap ul li a {
+  color: white;
+}
+footer div.top-foot div.tf-right div.tf-right-wrap ul li::after {
+  content: "";
+  display: inline-block;
+  background-color: white;
+  width: 1px;
+  height: 12px;
+  margin-left: 20px;
+}
+footer div.top-foot div.tf-right div.tf-right-wrap ul li:last-child::after {
+  display: none;
+}
+footer div.top-foot div.tf-right div.tf-right-wrap ul li select {
+  border: none;
+  padding: 0 20px;
+  border-radius: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; /*화살표 지우기*/
+  padding: 0 24px 0 12px;
+  font-size: 16px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+  color: white;
+  background: url(../images/common/btn-btn-profile-down.svg) no-repeat;
+  background-size: 10px;
+  background-position: right;
+}
+footer div.top-foot div.tf-right div.tf-right-wrap ul li select option {
+  color: black;
+  font-size: 14px;
+}
+footer div.top-foot div.tf-right div.tf-right-wrap ul li select:focus {
+  outline: none;
+}
+footer div.mid-foot {
+  display: flex;
+  justify-content: space-between;
+}
+footer div.mid-foot div.mf-left p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: gray;
+}
+footer div.mid-foot div.mf-right {
+  display: flex;
+  align-items: flex-end;
+}
+footer div.mid-foot div.mf-right div.sns a img {
+  margin-left: 15px;
+}
+footer div.bot-foot p {
+  color: gray;
+  font-weight: bold;
+}
+footer div.bot-foot::before {
+  content: "";
+  display: block;
+  border-top: 1px solid gray;
+  margin: 30px 0;
+}
+
+/*footer*/
+/*upbtn*/
+aside.upbtnside {
+  position: fixed;
+  bottom: 40px;
+  right: 55px;
+  width: 65px;
+  height: 65px;
+  background: black;
+  z-index: 100;
+}
+aside.upbtnside a div.upbtn {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+aside.upbtnside a div.upbtn img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}/*# sourceMappingURL=common.css.map */

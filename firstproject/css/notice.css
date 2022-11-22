@@ -1,0 +1,11 @@
+@import url(./common.css);
+div.main-inner {
+  width: 70%;
+  margin: 50px auto;
+}
+div.main-inner h2 {
+  text-align: center;
+  font-size: 60px;
+  letter-spacing: 5px;
+  margin: 130px 0;
+}/*# sourceMappingURL=notice.css.map */

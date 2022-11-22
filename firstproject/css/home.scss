@@ -1,0 +1,268 @@
+@import url(./common.css);
+@mixin box($color: black) {
+    border: 1px solid $color;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+}
+
+div.visual-container {
+    width: 90%;
+    margin: 0 auto;
+    div.visual-video {
+        width: 100%;
+        height: auto;
+        padding-top: 50%;
+        position: relative;
+        overflow: hidden;
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    }
+    div.visual-notice {
+        width: 100%;
+        height: 50px;
+        div {
+            display: inline-block;
+        }
+        div.today-time {
+            position: relative;
+            width: 10%;
+            line-height: 50px;
+            float: left;
+            text-align: center;
+            background: #1f5153;
+            img {
+                transform: translateY(4px);
+            }
+            span {
+                color: white;
+            }
+        }
+
+        div.time-notice {
+            line-height: 50px;
+            text-align: center;
+            span {
+                margin-left: 10px;
+                font-weight: 500;
+            }
+
+            /*중간에 줄을 넣어줘야하지않을까*/
+        }
+
+        div.map-link {
+            width: 10%;
+            line-height: 50px;
+            float: right;
+            text-align: center;
+            a img {
+                transform: translateY(3px);
+            }
+        }
+    }
+
+    div.scroll-animation {
+        position: absolute;
+        right: 50px;
+        bottom: 90px;
+        width: 20px;
+        height: 200px;
+        div.sa-text {
+            p {
+                text-align: center;
+                font-size: 12px;
+                line-height: 1.3;
+            }
+        }
+        div.sa-line {
+            width: 1px;
+            height: 100px;
+            margin: 10px auto 0;
+            background: black;
+            animation: "scrollanimation" 2000ms infinite;
+            transform-origin: top;
+        }
+    }
+}
+@keyframes scrollanimation {
+    0% {
+        transform-origin: top;
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+    /*
+    몬가 몬가임 수정해야함
+    아니면 아예 안보이는곳에서 라인이 떨어지게 만드는것도 나쁘지않을듯
+    라인의 3배길이를 영역으로 잡고 중간만 보이게 만드는식
+    */
+}
+/*notice*/
+div.notice-container {
+    width: 85%;
+    height: 80px;
+    margin: 100px auto;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    div {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 30px;
+    }
+
+    div.notice-title {
+        float: left;
+        position: relative;
+        img {
+            transform: translateY(4px);
+            margin: 0 5px;
+        }
+        &::after {
+            content: "";
+            width: 1px;
+            height: 20px;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.2);
+            top: 50%;
+            right: -20px;
+            transform: translateY(-45%);
+        }
+    }
+    div.notice-content {
+        ul {
+            li {
+                a {
+                    /*notice list rotation 구현해야겠지*/
+                }
+            }
+        }
+    }
+    div.notice-more {
+        float: right;
+    }
+}
+/*notice*/
+
+div.news-container {
+    width: 85%;
+    margin: 0 auto;
+    div.news-title {
+        margin: 30px 0;
+        position: relative;
+        h2 {
+            font-size: 40px;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        div.news-slide-btn {
+            float: right;
+            div {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                background: black;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+/*shortcut*/
+div.shortcut {
+    width: 100%;
+    height: 400px;
+    ul {
+        width: 100%;
+        font-size: 0;
+        li {
+            display: inline-block;
+            width: 33.33%;
+            font-size: 0;
+            a {
+                position: relative;
+                div.shortcut-image-tray {
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        filter: brightness(60%);
+                        transition: 600ms linear;
+                        transform: scale(1.1);
+                    }
+                }
+                div.shortcut-text-tray {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    line-height: 2;
+                    p {
+                        &:nth-child(1) {
+                            color: white;
+                            font-size: 32px;
+                            font-weight: bold;
+                        }
+                        &:nth-child(2) {
+                            color: white;
+                            font-size: 16px;
+                        }
+                    }
+                    img {
+                        margin: 20px;
+                    }
+                }
+
+                &:hover div.shortcut-image-tray img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}
+/*shortcut*/
+
+/*디테일 손봐야함*/
+/*하트 펌핑 keyframe 애니메이션?*/
+aside.donationbtnside {
+    position: fixed;
+    bottom: 80px;
+    left: 50px;
+    width: 85px;
+    height: 85px;
+    background: #dddddd;
+    border-radius: 50%;
+    z-index: 100;
+    div.donationbtn {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            img {
+                width: 20px;
+            }
+            p {
+                text-align: center;
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+    }
+}

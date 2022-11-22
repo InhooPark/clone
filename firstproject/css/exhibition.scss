@@ -1,0 +1,71 @@
+@import url(./common.css);
+@mixin box($color: black) {
+    border: 1px solid $color;
+    box-sizing: border-box;
+}
+
+div.main-inner {
+    width: 70%;
+
+    margin: 50px auto;
+
+    h2 {
+        text-align: center;
+        font-size: 60px;
+        letter-spacing: 5px;
+        margin: 130px 0;
+    }
+    div.achive-link {
+        a {
+            float: right;
+            /*위치가 왜 이럴까?*/
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            border: 1px solid black;
+            margin-bottom: 50px;
+        }
+    }
+
+    div.ex-local-content-wrap {
+        div.ex-local-content {
+            display: flex;
+            justify-content: space-between;
+            a {
+                div.ex-local-img-wrap {
+                    width: 100%;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        transition: 800ms;
+                    }
+                }
+                div.ex-local-text-wrap {
+                    margin: 30px 0;
+                    > span.badge {
+                        border: 1px solid black;
+                        font-weight: bold;
+                        font-size: 12px;
+                        padding: 2px;
+                    }
+                    h4{
+                        font-size: 30px;
+                        line-height: 3;
+                    }
+                    p{
+                        line-height: 1.7;
+                        b{
+                            margin-right: 15px
+                        }
+                    }
+                }
+                &:hover div.ex-local-img-wrap img{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

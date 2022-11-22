@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>경기도 박물관</title>
+
+        <link rel="stylesheet" href="./css/exhibition.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+        <script src="./js/active.js"></script>
+    </head>
+    <body>
+        <!--header-->
+        <header>
+            <div class="head-menu">
+                <div class="top-menu">
+                    <div class="logo">
+                        <a href="./home.html"><img src="./images/common/logo.svg" alt="logo" /></a>
+                    </div>
+                    <div class="sub-menu">
+                        <nav class="sub-menu-list">
+                            <ul>
+                                <li><a href="#">자료실</a></li>
+                                <li><a href="#">Q&A</a></li>
+                                <li>
+                                    <a href="#" class="mlink">MEMBERS <img src="./images/common/icon-link-black-24-dp.svg" alt="linkimg" /></a>
+                                </li>
+                                <li>
+                                    <select onchange="if(this.value) location.href=(this.value);">
+                                        <option value="#" selected>한국어</option>
+                                        <option value="#">ENGLISH</option>
+                                        <option value="#">中文</option>
+                                        <option value="#">日本語</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <a href="#" class="burger">
+                            <div class="burger-wrap">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="main-menu">
+                    <ul>
+                        <li>
+                            <a href="./guide.html">이용안내</a>
+                            <ul>
+                                <li><a href="./guide.html">관람안내</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./exhibition.html">전시</a>
+                            <ul>
+                                <li><a href="./exhibition.html">전시</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./education.html">교육</a>
+                            <ul>
+                                <li><a href="./education.html">어린이</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./notice.html">소식</a>
+                            <ul>
+                                <li><a href="./notice.html">공고·공지</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./relic.html">유물</a>
+                            <ul>
+                                <li><a href="./relic.html">소장유물</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./museum.html">박물관</a>
+                            <ul>
+                                <li><a href="./museum.html">박물관 소개</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--subpage header-->
+            <div class="subpage-header">
+                <div class="subpage-header-inner">
+                    <ul>
+                        <li class="homeicon">
+                            <a href="#">
+                                <img src="./images/common/ic-home-black-18-dp.svg" alt="홈아이콘" />
+                            </a>
+                        </li>
+                        <li class="main-category">
+                            <a href="#">전시</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--subpage header-->
+        </header>
+        <!--header-->
+
+        <main>
+            <div class="main-inner">
+                <h2>전시</h2>
+
+                <div class="achive-link">
+                    <a href="#" class="achive">아카이브 <img src="./images/common/ic-arrow-right-green-24-dp.svg" alt="" /></a>
+                </div>
+
+                <!--미구현 페이지(아카이브)-->
+                <!--라인 넣어야함-->
+
+                <div class="ex-local-content-wrap">
+                    <div class="ex-local-content">
+                        <a href="#">
+                            <!--미구현링크-->
+                            <div class="ex-local-img-wrap">
+                                <img src="./images/link/ex1.jpg" alt="전시장사진1" />
+                            </div>
+                            <div class="ex-local-text-wrap">
+                                <span class="badge">온라인전시</span>
+                                <h4>상설전시실 VR 온라인 전시</h4>
+                                <p><b>기간</b> 2020.12.10(목) ~ 2030.12.31(화)</p>
+                                <p><b>장소</b> 경기도박물관 상설전시실</p>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <!--미구현링크-->
+                            <div class="ex-local-img-wrap">
+                                <img src="./images/link/ex2.jpg" alt="전시장사진1" />
+                            </div>
+                            <div class="ex-local-text-wrap">
+                                <span class="badge">상시전시</span>
+                                <h4>상설 전시</h4>
+                                <p><b>기간</b>2020.08.04(화) ~ 2025.12.31(수)</p>
+                                <p><b>장소</b>1층, 2층 상설전시실</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="newsletter">
+            <h2>뉴스레터</h2>
+            <p>박물관의 새로운 소식을 받으시려면 뉴스레터에 가입해 주세요</p>
+            <div class="subscription">
+                <input type="email" placeholder="이메일을 입력해주세요." />
+                <button type="submit">구독하기</button>
+            </div>
+        </div>
+        <!--footer-->
+        <footer>
+            <div class="top-foot">
+                <div class="tf-left">
+                    <a href="#"><img src="./images/common/logo-white.svg" alt="logo" /></a>
+                    <a href="#"><img src="./images/common/musenet_ggcf.png" alt="ggcf" /></a>
+                    <a href="#"><img src="./images/common/musenet_gg.png" alt="gg" /></a>
+                </div>
+                <div class="tf-right">
+                    <div class="tf-right-wrap">
+                        <ul>
+                            <li><a href="#">개인정보취급방침</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">행정정보공개</a></li>
+                            <li><a href="#">클린신고센터</a></li>
+                            <li>
+                                <select onchange="if(this.value) window.open(this.value);">
+                                    <option hidden>family sites</option>
+                                    <option>경기문화재단</option>
+                                    <option>경기도미술관</option>
+                                    <option value="https://njp.ggcf.kr/">백남준아트센터</option>
+                                    <option>실학박물관</option>
+                                    <option>전곡선사박물관</option>
+                                    <option>경기도어린이박물관</option>
+                                    <option>경기북부어린이박물관</option>
+                                    <option>경기문화재연구원</option>
+                                    <option>경기상상캠퍼스</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mid-foot">
+                <div class="mf-left">
+                    <p>(재)경기문화재단 경기도박물관 / (17072) 경기도 용인시 기흥구 상갈로 6 (상갈동)</p>
+                    <p>대표전화 031-288-5300 / 관람안내 031-288-5400 / FAX: 031-288-5339</p>
+                    <p>사업자등록번호 : 142-82-01158</p>
+                </div>
+                <div class="mf-right">
+                    <div class="sns">
+                        <a href="#"><img src="./images/common/ic-youtube-white-32-dp.svg" alt="youtube" /></a>
+                        <a href="#"><img src="./images/common/ic-facebook-white-32-dp.svg" alt="facebook" /></a>
+                        <a href="#"><img src="./images/common/ic-instagram-white-32-dp.svg" alt="instagram" /></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bot-foot">
+                <p>© Copyright GGCF. ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+        <!--footer-->
+
+        <!--aside upbtn-->
+        <aside class="upbtnside">
+            <a href="#">
+                <div class="upbtn">
+                    <img src="./images/common/ic-angle-up-white-24-dp.svg" alt="위로가기버튼" />
+                </div>
+            </a>
+        </aside>
+        <!--aside upbtn-->
+    </body>
+</html>

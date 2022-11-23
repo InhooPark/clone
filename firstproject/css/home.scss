@@ -51,48 +51,64 @@ div.visual-container {
             line-height: 50px;
             text-align: center;
             span {
-                margin-left: 10px;
+                margin-left: 30px;
                 font-weight: 500;
-            }
 
-            /*중간에 줄을 넣어줘야하지않을까*/
-        }
-
-        div.map-link {
-            width: 10%;
-            line-height: 50px;
-            float: right;
-            text-align: center;
-            a img {
-                transform: translateY(3px);
+                &::after {
+                    content: "";
+                    width: 1px;
+                    height: 16px;
+                    position: absolute;
+                    background: rgba(0, 0, 0, 0.2);
+                    transform: translate(17px, 19px);
+                }
+                &:last-child::after {
+                    display: none;
+                }
             }
         }
     }
 
-    div.scroll-animation {
-        position: absolute;
-        right: 50px;
-        bottom: 90px;
-        width: 20px;
-        height: 200px;
-        div.sa-text {
-            p {
-                text-align: center;
-                font-size: 12px;
-                line-height: 1.3;
-            }
-        }
-        div.sa-line {
-            width: 1px;
-            height: 100px;
-            margin: 10px auto 0;
-            background: black;
-            animation: "scrollanimation" 2000ms infinite;
-            transform-origin: top;
+    div.map-link {
+        width: 10%;
+        line-height: 50px;
+        float: right;
+        text-align: center;
+        a img {
+            transform: translateY(3px);
         }
     }
 }
-@keyframes scrollanimation {
+
+div.scroll-animation {
+    position: absolute;
+    right: 50px;
+    bottom: 90px;
+    width: 20px;
+    height: 200px;
+    div.sa-text {
+        p {
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+    }
+    div.sa-line {
+        width: 1px;
+        height: 100px;
+        margin: 10px auto 0;
+        background: black;
+        /* animation: "scrollanimation","scrollanimation2" 2000ms infinite; */
+
+        animation-fill-mode: forwards;
+        animation-name: "scrollanimation1", "scrollanimation2";
+        animation-delay: 0s, 2s;
+        animation-duration: 2s, 8s;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes scrollanimation1 {
     0% {
         transform-origin: top;
         transform: scale(0);
@@ -100,34 +116,40 @@ div.visual-container {
     100% {
         transform: scale(1);
     }
-    /*
-    몬가 몬가임 수정해야함
-    아니면 아예 안보이는곳에서 라인이 떨어지게 만드는것도 나쁘지않을듯
-    라인의 3배길이를 영역으로 잡고 중간만 보이게 만드는식
-    */
+}
+
+@keyframes scrollanimation2 {
+    0% {
+        transform-origin: bottom;
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
 }
 /*notice*/
 div.notice-container {
-    width: 85%;
+    width: 80%;
     height: 80px;
     margin: 100px auto;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     box-sizing: border-box;
-    div {
-        display: inline-block;
-        line-height: 80px;
-        margin: 0 30px;
-    }
+    display: flex;
 
     div.notice-title {
-        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: relative;
+        width: 10%;
+        height: 100%;
+        @include box(red);
         img {
             transform: translateY(4px);
             margin: 0 5px;
         }
-        &::after {
+        /* &::after {
             content: "";
             width: 1px;
             height: 20px;
@@ -136,47 +158,139 @@ div.notice-container {
             top: 50%;
             right: -20px;
             transform: translateY(-45%);
-        }
+        } */
     }
-    div.notice-content {
-        ul {
-            li {
-                a {
-                    /*notice list rotation 구현해야겠지*/
+
+    .notice-content {
+        display: flex;
+
+        position: relative;
+        width: 80%;
+        height: 100%;
+        @include box(red);
+        .slide {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: pink;
+            z-index: 0;
+            span {
+                @include box(blue);
+                display: flex;
+                height: 100%;
+                align-items: center;
+                &:first-child {
+                    width: 15%;
+                    justify-content: center;
+                }
+                &:last-child {
+                    width: 85%;
+                    margin-left: 2%;
                 }
             }
         }
     }
+
+    .showing {
+        z-index: 1;
+    }
+
     div.notice-more {
-        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10%;
+        height: 100%;
+        @include box(red);
     }
 }
+
 /*notice*/
 
+/*news*/
 div.news-container {
-    width: 85%;
-    margin: 0 auto;
+    width: 80%;
+    margin: 30px auto 10px;
     div.news-title {
         margin: 30px 0;
         position: relative;
+        display: flex;
         h2 {
+            margin: 0 auto;
             font-size: 40px;
             letter-spacing: 3px;
-            text-align: center;
         }
 
         div.news-slide-btn {
-            float: right;
+            display: flex;
+            width: 100%;
+            position: absolute;
+
+            justify-content: flex-end;
+
             div {
-                display: inline-block;
-                width: 40px;
-                height: 40px;
-                background: black;
+                display: flex;
+                width: 60px;
+                height: 60px;
+                @include box(#1f5153);
+                background: transparent url("../images/common/ic-angle-legt-black-24-dp.svg") no-repeat center center;
+                margin-left: 20px;
                 cursor: pointer;
+                transition: 300ms;
+
+                &:hover {
+                    background: #1f5153 url("../images/common/ic-angle-left-white-24-dp.svg") no-repeat center center;
+                }
+            }
+            .rightbtn {
+                transform: rotate(180deg);
             }
         }
     }
 }
+
+div.news-content-wrap {
+    display: flex;
+    div.news-content {
+        display: flex;
+        flex-direction: column;
+        width: 28%;
+        div.news-wrap {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        p.news-badge {
+            position: absolute;
+            padding: 2px 20px;
+            margin: 1px;
+            font-size: 14px;
+            font-weight: 500;
+            background: white;
+            @include box(#1f5153);
+        }
+
+        p.news-period {
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 10px;
+            font-family: "Gotham", sans-serif;
+        }
+        p.news-title{
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+}
+
+/*news*/
 
 /*shortcut*/
 div.shortcut {

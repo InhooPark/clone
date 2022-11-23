@@ -48,44 +48,63 @@ div.visual-container div.visual-notice div.today-time span {
 div.visual-container div.visual-notice div.time-notice {
   line-height: 50px;
   text-align: center;
-  /*중간에 줄을 넣어줘야하지않을까*/
 }
 div.visual-container div.visual-notice div.time-notice span {
-  margin-left: 10px;
+  margin-left: 30px;
   font-weight: 500;
 }
-div.visual-container div.visual-notice div.map-link {
+div.visual-container div.visual-notice div.time-notice span::after {
+  content: "";
+  width: 1px;
+  height: 16px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
+  transform: translate(17px, 19px);
+}
+div.visual-container div.visual-notice div.time-notice span:last-child::after {
+  display: none;
+}
+div.visual-container div.map-link {
   width: 10%;
   line-height: 50px;
   float: right;
   text-align: center;
 }
-div.visual-container div.visual-notice div.map-link a img {
+div.visual-container div.map-link a img {
   transform: translateY(3px);
 }
-div.visual-container div.scroll-animation {
+
+div.scroll-animation {
   position: absolute;
   right: 50px;
   bottom: 90px;
   width: 20px;
   height: 200px;
 }
-div.visual-container div.scroll-animation div.sa-text p {
+div.scroll-animation div.sa-text p {
   text-align: center;
   font-size: 12px;
   line-height: 1.3;
 }
-div.visual-container div.scroll-animation div.sa-line {
+div.scroll-animation div.sa-line {
   width: 1px;
   height: 100px;
   margin: 10px auto 0;
   background: black;
-  -webkit-animation: "scrollanimation" 2000ms infinite;
-          animation: "scrollanimation" 2000ms infinite;
-  transform-origin: top;
+  /* animation: "scrollanimation","scrollanimation2" 2000ms infinite; */
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: "scrollanimation1", "scrollanimation2";
+          animation-name: "scrollanimation1", "scrollanimation2";
+  -webkit-animation-delay: 0s, 2s;
+          animation-delay: 0s, 2s;
+  -webkit-animation-duration: 2s, 8s;
+          animation-duration: 2s, 8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
-@-webkit-keyframes scrollanimation {
+@-webkit-keyframes scrollanimation1 {
   0% {
     transform-origin: top;
     transform: scale(0);
@@ -93,14 +112,9 @@ div.visual-container div.scroll-animation div.sa-line {
   100% {
     transform: scale(1);
   }
-  /*
-  몬가 몬가임 수정해야함
-  아니면 아예 안보이는곳에서 라인이 떨어지게 만드는것도 나쁘지않을듯
-  라인의 3배길이를 영역으로 잡고 중간만 보이게 만드는식
-  */
 }
 
-@keyframes scrollanimation {
+@keyframes scrollanimation1 {
   0% {
     transform-origin: top;
     transform: scale(0);
@@ -108,76 +122,184 @@ div.visual-container div.scroll-animation div.sa-line {
   100% {
     transform: scale(1);
   }
-  /*
-  몬가 몬가임 수정해야함
-  아니면 아예 안보이는곳에서 라인이 떨어지게 만드는것도 나쁘지않을듯
-  라인의 3배길이를 영역으로 잡고 중간만 보이게 만드는식
-  */
+}
+@-webkit-keyframes scrollanimation2 {
+  0% {
+    transform-origin: bottom;
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes scrollanimation2 {
+  0% {
+    transform-origin: bottom;
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
 /*notice*/
 div.notice-container {
-  width: 85%;
+  width: 80%;
   height: 80px;
   margin: 100px auto;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   box-sizing: border-box;
-}
-div.notice-container div {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 30px;
+  display: flex;
 }
 div.notice-container div.notice-title {
-  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  width: 10%;
+  height: 100%;
+  border: 1px solid red;
+  box-sizing: border-box;
+  /* &::after {
+      content: "";
+      width: 1px;
+      height: 20px;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.2);
+      top: 50%;
+      right: -20px;
+      transform: translateY(-45%);
+  } */
 }
 div.notice-container div.notice-title img {
   transform: translateY(4px);
   margin: 0 5px;
 }
-div.notice-container div.notice-title::after {
-  content: "";
-  width: 1px;
-  height: 20px;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.2);
-  top: 50%;
-  right: -20px;
-  transform: translateY(-45%);
+div.notice-container .notice-content {
+  display: flex;
+  position: relative;
+  width: 80%;
+  height: 100%;
+  border: 1px solid red;
+  box-sizing: border-box;
 }
-div.notice-container div.notice-content ul li a {
-  /*notice list rotation 구현해야겠지*/
+div.notice-container .notice-content .slide {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: pink;
+  z-index: 0;
+}
+div.notice-container .notice-content .slide span {
+  border: 1px solid blue;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+div.notice-container .notice-content .slide span:first-child {
+  width: 15%;
+  justify-content: center;
+}
+div.notice-container .notice-content .slide span:last-child {
+  width: 85%;
+  margin-left: 2%;
+}
+div.notice-container .showing {
+  z-index: 1;
 }
 div.notice-container div.notice-more {
-  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+  border: 1px solid red;
+  box-sizing: border-box;
 }
 
 /*notice*/
+/*news*/
 div.news-container {
-  width: 85%;
-  margin: 0 auto;
+  width: 80%;
+  margin: 30px auto 10px;
 }
 div.news-container div.news-title {
   margin: 30px 0;
   position: relative;
+  display: flex;
 }
 div.news-container div.news-title h2 {
+  margin: 0 auto;
   font-size: 40px;
   letter-spacing: 3px;
-  text-align: center;
 }
 div.news-container div.news-title div.news-slide-btn {
-  float: right;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  justify-content: flex-end;
 }
 div.news-container div.news-title div.news-slide-btn div {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background: black;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #1f5153;
+  box-sizing: border-box;
+  background: transparent url("../images/common/ic-angle-legt-black-24-dp.svg") no-repeat center center;
+  margin-left: 20px;
   cursor: pointer;
+  transition: 300ms;
+}
+div.news-container div.news-title div.news-slide-btn div:hover {
+  background: #1f5153 url("../images/common/ic-angle-left-white-24-dp.svg") no-repeat center center;
+}
+div.news-container div.news-title div.news-slide-btn .rightbtn {
+  transform: rotate(180deg);
 }
 
+div.news-content-wrap {
+  display: flex;
+}
+div.news-content-wrap div.news-content {
+  display: flex;
+  flex-direction: column;
+  width: 28%;
+}
+div.news-content-wrap div.news-content div.news-wrap {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+div.news-content-wrap div.news-content div.news-wrap img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+div.news-content-wrap div.news-content p.news-badge {
+  position: absolute;
+  padding: 2px 20px;
+  margin: 1px;
+  font-size: 14px;
+  font-weight: 500;
+  background: white;
+  border: 1px solid #1f5153;
+  box-sizing: border-box;
+}
+div.news-content-wrap div.news-content p.news-period {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 10px;
+  font-family: "Gotham", sans-serif;
+}
+div.news-content-wrap div.news-content p.news-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/*news*/
 /*shortcut*/
 div.shortcut {
   width: 100%;

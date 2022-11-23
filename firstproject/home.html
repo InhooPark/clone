@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="./css/home.css">
     <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
-    <script src="./js/active.js"></script>
+    <!-- <script src="./js/home.js"></script> -->
 
 </head>
 <body>
@@ -137,29 +137,33 @@
                 <img src="./images/common/ic-notice-black-24-dp.svg" alt="공지">
                 <span>공지사항</span>
             </div>
+    
+            
             <div class="notice-content">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <span>1번 날짜</span>
-                            <span>1번 내용</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>1번 날짜</span>
-                            <span>2번 내용</span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="slide">
+                    <span>1번 날짜</span>
+                    <span>1번 내용</span>
+                </div>
+                <div class="slide">
+                    <span>2번 날짜</span>
+                    <span>2번 내용</span>
+                </div>
             </div>
+
+
+
+                
             <div class="notice-more">
                 <a href="#">
                     <span>더 알아보기</span>
                     <img src="./images/common/ic-arrow-right-green-24-dp.svg" alt="화살표">
                 </a>
             </div>
+
         </div>
+
+        
+
 
 
 
@@ -173,11 +177,38 @@
                 </div>
             </div>
 
+
+
+            
             <div class="news-content-wrap">
                 <div class="news-content">
-                    <img src="" alt="">
-                    <p>기간</p>
-                    <p>제목</p>
+                    <div class="news-wrap">
+                        <img src="./images/news/news1.jpg" alt="">
+                    </div>
+                    
+                    <p class="news-badge">전시</p>
+                    <p class="news-period">2020.08.04 -</p>
+                    <p class="news-title">재개관 상설전 《경기 국가근본의 땅》</p>
+                </div>
+
+                <div class="news-content">
+                    <div class="news-wrap">
+                        <img src="./images/news/news2.jpg" alt="">
+                    </div>
+                    
+                    <p class="news-badge">교육</p>
+                    <p class="news-period">2022.11.23 - 2022.11.30</p>
+                    <p class="news-title">학예사와 함께하는 '큐레이터 Talk! Talk!'</p>
+                </div>
+
+                <div class="news-content">
+                    <div class="news-wrap">
+                        <img src="./images/news/news3.jpg" alt="">
+                    </div>
+                    
+                    <p class="news-badge">행사</p>
+                    <p class="news-period">2022.11.22 - 2022.11.30</p>
+                    <p class="news-title">제24회 초등학생 문화재 그림그리기 대회</p>
                 </div>
             </div>
         </div>
@@ -243,7 +274,7 @@
             <p>박물관의 새로운 소식을 받으시려면 뉴스레터에 가입해 주세요</p>
             <div class="subscription">
                 <input type="email" placeholder="이메일을 입력해주세요.">
-                <button type="submit">구독하기
+                <button type="submit">구독하기</button>
             </div>
         </div>
     <footer>

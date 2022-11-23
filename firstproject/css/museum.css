@@ -1,0 +1,83 @@
+@import url(./common.css);
+div.sub-header-title h2 {
+  text-align: center;
+  font-size: 60px;
+  letter-spacing: 5px;
+  margin: 130px 0 100px;
+}
+div.sub-header-title div.museum-visual {
+  height: 400px;
+  overflow: hidden;
+}
+div.sub-header-title div.museum-visual img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+div.main-inner {
+  width: 70%;
+  margin: 80px auto;
+}
+div.main-inner h4 {
+  font-size: 32px;
+  font-weight: bold;
+}
+div.main-inner p {
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+div.main-inner p.stitle {
+  font-size: 32px;
+  line-height: normal;
+}
+div.main-inner p.stitle b {
+  font-weight: 500;
+}
+div.main-inner div.leftside {
+  width: 35%;
+}
+div.main-inner div.rightside {
+  width: 65%;
+}
+div.main-inner div.top-content {
+  display: flex;
+  margin-bottom: 5rem;
+}
+div.main-inner div.bottom-content {
+  display: flex;
+}
+div.main-inner div.bottom-content div.rightside div.imggrid {
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  padding-top: 60%;
+  background: url("../images/grid.svg") repeat;
+}
+div.main-inner div.bottom-content div.rightside div.imggrid img {
+  position: absolute;
+  display: block;
+  width: 30%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+div.main-inner div.bottom-content div.rightside div.download div {
+  margin: 30px 15px 0 0;
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+div.main-inner div.bottom-content div.rightside div.download div a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+div.main-inner div.bottom-content div.rightside div.download div a img {
+  margin-right: 10px;
+}/*# sourceMappingURL=museum.css.map */

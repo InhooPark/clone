@@ -4,15 +4,55 @@
     box-sizing: border-box;
 }
 
-
-div.main-inner{
-    width: 70%;
-
-    margin: 50px auto;
+div.sub-header-title{
     h2{
         text-align: center;
         font-size: 60px;
         letter-spacing: 5px;
         margin: 130px 0;
+    }
+}
+
+
+div.main-inner{
+    width: 70%;
+
+    margin: 50px auto;
+
+    div.search-container{
+        text-align: center;
+        input{
+            width: 50%;
+            height: 50px;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            border-bottom: 2px solid black;
+            &::placeholder{
+                color: rgba(0,0,0,0.4);
+                font-weight: 600;
+                letter-spacing: -1px;
+            }
+            /* 앞쪽에 돋보기 뒤쪽에 취소버튼 생기면 좋을듯 취소는 기본이니 돋보기 앞쪽에 */
+        }
+    }
+
+    div.search-content-table{
+        margin: 50px auto;
+        width: 100%;
+        table{
+            border-top: 2px solid black;
+            width: 100%;
+            text-align: center;
+            tr{
+                border-bottom: 1px solid rgba(0,0,0,0.2);
+                line-height: 3;
+                td{
+                    &.serach-content{
+                        text-align: start;
+                    }
+                }
+            }
+        }
     }
 }

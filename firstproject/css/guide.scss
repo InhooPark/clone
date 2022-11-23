@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+div.sub-header-title{
+    h2{
+        text-align: center;
+        font-size: 60px;
+        letter-spacing: 5px;
+        margin: 130px 0;
+    }
+}
+
 
 div.main-inner{
     width: 70%;
@@ -43,9 +52,6 @@ div.main-inner{
     div.view-time{
         table{
             tr{
-                th{
-
-                }
                 td{
                     span{
                         color: red;

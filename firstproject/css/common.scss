@@ -319,6 +319,7 @@ div.newsletter{
             cursor: pointer;
         }
     }
+
 }
 /*newsletter*/
 
@@ -439,6 +440,9 @@ aside.upbtnside{
     height: 65px;
     background: black;
     z-index: 100;
+    transform: scale(0);
+    transition: 200ms; /*해결이 안된다*/
+    
     a{
         div.upbtn{
             width: 100%;
@@ -452,4 +456,33 @@ aside.upbtnside{
             }  
         }
     }
+    &:hover{
+        background: #1F5153;
+    }
 }
+aside.upbtnside.disable{
+    /* animation: 'upbtnanimation' 300ms forwards; */
+    transform: scale(1);
+}
+
+
+/* .able{
+    animation: 'upbtnanimation2' 300ms forwards;
+} */
+
+/* @keyframes upbtnanimation {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+@keyframes upbtnanimation2{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+} */

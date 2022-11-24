@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 div.sub-header-title{
     h2{
         text-align: center;
@@ -12,7 +13,10 @@ div.sub-header-title{
         margin: 130px 0;
     }
 }
+
 .is-hidden { display: none; }
+
+
 
 div.main-inner{
     width: 70%;
@@ -36,23 +40,7 @@ div.main-inner{
             /* 앞쪽에 돋보기 뒤쪽에 취소버튼 생기면 좋을듯 취소는 기본이니 돋보기 앞쪽에 */
         }
     }
-
-    div.search-content-table{
-        margin: 50px auto;
-        width: 100%;
-        table{
-            border-top: 2px solid black;
-            width: 100%;
-            text-align: center;
-            tr{
-                border-bottom: 1px solid rgba(0,0,0,0.2);
-                line-height: 3;
-                td{
-                    &.serach-content{
-                        text-align: start;
-                    }
-                }
-            }
-        }
-    }
 }
+
+
+/*notice.js의 검색알고리즘 가져올듯*/

@@ -53,7 +53,7 @@ div.main-inner div.bottom-content div.rightside div.imggrid {
   position: relative;
   width: 100%;
   padding-top: 60%;
-  background: url("../images/grid.svg") repeat;
+  background: url("../images/common/grid.svg") repeat;
 }
 div.main-inner div.bottom-content div.rightside div.imggrid img {
   position: absolute;

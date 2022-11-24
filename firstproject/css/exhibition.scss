@@ -9,7 +9,7 @@ div.sub-header-title{
         text-align: center;
         font-size: 60px;
         letter-spacing: 5px;
-        margin: 130px 0;
+        margin: 130px 0 110px;
     }
 }
 
@@ -20,20 +20,29 @@ div.main-inner {
     margin: 50px auto;
 
     div.achive-link {
+        display: flex;
+        justify-content: end;
         a {
-            float: right;
-            /*위치가 왜 이럴까?*/
+            padding: 20px;
+            img{
+                transition: 300ms;
+            }
+
+            &:hover img{
+                transform: translateX(10px);
+            }
         }
 
-        &::after {
+        
+    }
+
+    div.ex-local-content-wrap {
+        &::before {
             content: "";
             display: block;
             border: 1px solid black;
             margin-bottom: 50px;
         }
-    }
-
-    div.ex-local-content-wrap {
         div.ex-local-content {
             display: flex;
             justify-content: space-between;

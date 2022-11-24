@@ -6,6 +6,7 @@
 
 main {
     width: 100%;
+    overflow: hidden;
 }
 
 div.visual-container {
@@ -80,7 +81,7 @@ div.visual-container {
     }
 }
 
-div.scroll-animation {
+/* div.scroll-animation {
     position: absolute;
     right: 50px;
     bottom: 90px;
@@ -98,7 +99,7 @@ div.scroll-animation {
         height: 100px;
         margin: 10px auto 0;
         background: black;
-        /* animation: "scrollanimation","scrollanimation2" 2000ms infinite; */
+        
 
         animation-fill-mode: forwards;
         animation-name: "scrollanimation1", "scrollanimation2";
@@ -106,7 +107,7 @@ div.scroll-animation {
         animation-duration: 2s, 8s;
         animation-iteration-count: infinite;
     }
-}
+} 언젠간 만들겠지 */
 
 @keyframes scrollanimation1 {
     0% {
@@ -144,12 +145,11 @@ div.notice-container {
         position: relative;
         width: 10%;
         height: 100%;
-        @include box(red);
         img {
             transform: translateY(4px);
             margin: 0 5px;
         }
-        /* &::after {
+        &::after {
             content: "";
             width: 1px;
             height: 20px;
@@ -158,7 +158,7 @@ div.notice-container {
             top: 50%;
             right: -20px;
             transform: translateY(-45%);
-        } */
+        }
     }
 
     .notice-content {
@@ -166,34 +166,38 @@ div.notice-container {
 
         position: relative;
         width: 80%;
+        margin-left: 20px;
         height: 100%;
-        @include box(red);
         .slide {
             display: flex;
+            opacity: 0;
             position: absolute;
             width: 100%;
             height: 100%;
-            background: pink;
-            z-index: 0;
-            span {
-                @include box(blue);
+            transition: 300ms;
+            a {
                 display: flex;
+                width: 100%;
                 height: 100%;
-                align-items: center;
-                &:first-child {
-                    width: 15%;
-                    justify-content: center;
-                }
-                &:last-child {
-                    width: 85%;
-                    margin-left: 2%;
+                span {
+                    display: flex;
+                    height: 100%;
+                    align-items: center;
+                    &:first-child {
+                        width: 15%;
+                        justify-content: center;
+                    }
+                    &:last-child {
+                        width: 85%;
+                        margin-left: 2%;
+                    }
                 }
             }
         }
-    }
 
-    .showing {
-        z-index: 1;
+        .showing {
+            opacity: 1;
+        }
     }
 
     div.notice-more {
@@ -202,7 +206,13 @@ div.notice-container {
         align-items: center;
         width: 10%;
         height: 100%;
-        @include box(red);
+
+        img {
+            transition: 200ms;
+        }
+        &:hover img {
+            transform: translateX(10px);
+        }
     }
 }
 
@@ -251,46 +261,129 @@ div.news-container {
 }
 
 div.news-content-wrap {
-    display: flex;
+    display: inline-block;
+    white-space: nowrap;
+    width: 100%;
+
     div.news-content {
-        display: flex;
-        flex-direction: column;
-        width: 28%;
-        div.news-wrap {
+        display: inline-block;
+        position: relative;
+        width: 30%;
+        margin-right: 5%;
+        left: -50px;
+        a {
+            display: block;
             width: 100%;
-            overflow: hidden;
-            margin-bottom: 20px;
-            img {
+            height: 100%;
+            div.news-wrap {
                 width: 100%;
-                object-fit: cover;
+                overflow: hidden;
+                margin-bottom: 20px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    transition: 500ms;
+                }
+
+                div.news-more {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50%;
+                    height: 50px;
+                    background: #1f5153;
+                    transition: 500ms;
+                    opacity: 0;
+                    p{
+                        color: white;
+                    }
+                }
             }
-        }
 
-        p.news-badge {
-            position: absolute;
-            padding: 2px 20px;
-            margin: 1px;
-            font-size: 14px;
-            font-weight: 500;
-            background: white;
-            @include box(#1f5153);
-        }
+            /*이거 해결해야함 미완성*/
 
-        p.news-period {
-            font-size: 14px;
-            font-weight: bold;
-            color: #666;
-            margin-bottom: 10px;
-            font-family: "Gotham", sans-serif;
-        }
-        p.news-title{
-            font-size: 20px;
-            font-weight: 500;
+            p.news-badge {
+                position: absolute;
+                padding: 2px 20px;
+                margin: 1px;
+                font-size: 14px;
+                font-weight: 500;
+                top: 0;
+                left: 0;
+                background: white;
+                @include box(#1f5153);
+                transition: 500ms;
+            }
+
+            p.news-period {
+                font-size: 14px;
+                font-weight: bold;
+                color: #666;
+                margin-bottom: 10px;
+                font-family: "Gotham", sans-serif;
+            }
+            p.news-title {
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+            &:hover div.news-wrap{
+                img{
+                    filter: brightness(0.5);
+                    transform: scale(1.1);
+                }
+                div.news-more{
+                    opacity: 1;
+                }
+            }
+
+            &:hover p.news-badge{
+                filter: brightness(0.5);
+            }
         }
     }
 }
 
 /*news*/
+
+div.relic-container {
+    width: 80%;
+    margin: 100px auto;
+    div.relic-title {
+        p {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        &::after {
+            margin-top: 100px;
+            width: 100%;
+            content: "";
+            display: block;
+            border: 1px solid black;
+        }
+    }
+
+    div.relic-wrap {
+        display: flex;
+        div.relic {
+            width: 25%;
+            padding: 10px;
+            overflow: hidden;
+            img {
+                display: block;
+                min-width: 100%;
+                max-width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
 
 /*shortcut*/
 div.shortcut {
@@ -348,29 +441,34 @@ div.shortcut {
     }
 }
 /*shortcut*/
-
-/*디테일 손봐야함*/
-/*하트 펌핑 keyframe 애니메이션?*/
 aside.donationbtnside {
     position: fixed;
     bottom: 80px;
     left: 50px;
     width: 85px;
     height: 85px;
-    background: #dddddd;
+    background: #eeeeee;
     border-radius: 50%;
     z-index: 100;
+    box-shadow: -1px 1px 10px #bbbbbb;
     div.donationbtn {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         height: 100%;
         a {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             img {
                 width: 20px;
+                margin: 5px 0;
+                animation: "heartAnimation" 3000ms infinite;
             }
             p {
                 text-align: center;
@@ -378,5 +476,103 @@ aside.donationbtnside {
                 font-weight: bold;
             }
         }
+    }
+
+    &:hover + div.circle {
+        div.circle1 {
+            animation: "circleWave1" 2000ms infinite;
+        }
+        div.circle2 {
+            animation: "circleWave2" 2000ms infinite;
+        }
+        div.circle3 {
+            animation: "circleWave3" 2000ms infinite;
+        }
+    }
+}
+
+div.circle1 {
+    position: fixed;
+    bottom: 80px;
+    left: 50px;
+    width: 85px;
+    height: 85px;
+    background: #1f5153;
+    border-radius: 50%;
+    z-index: 99;
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+div.circle2 {
+    position: fixed;
+    bottom: 80px;
+    left: 50px;
+    width: 85px;
+    height: 85px;
+    background: #3b9b9e;
+    border-radius: 50%;
+    z-index: 98;
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+div.circle3 {
+    position: fixed;
+    bottom: 80px;
+    left: 50px;
+    width: 85px;
+    height: 85px;
+    background: #6ed8db;
+    border-radius: 50%;
+    z-index: 97;
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+
+@keyframes heartAnimation {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.2);
+    }
+    25% {
+        transform: scale(1);
+    }
+    35% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes circleWave1 {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+@keyframes circleWave2 {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+@keyframes circleWave3 {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2.2);
+        opacity: 0;
     }
 }

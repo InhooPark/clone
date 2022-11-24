@@ -2,6 +2,7 @@
 @import url(./common.css);
 main {
   width: 100%;
+  overflow: hidden;
 }
 
 div.visual-container {
@@ -74,36 +75,33 @@ div.visual-container div.map-link a img {
   transform: translateY(3px);
 }
 
-div.scroll-animation {
-  position: absolute;
-  right: 50px;
-  bottom: 90px;
-  width: 20px;
-  height: 200px;
-}
-div.scroll-animation div.sa-text p {
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.3;
-}
-div.scroll-animation div.sa-line {
-  width: 1px;
-  height: 100px;
-  margin: 10px auto 0;
-  background: black;
-  /* animation: "scrollanimation","scrollanimation2" 2000ms infinite; */
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-name: "scrollanimation1", "scrollanimation2";
-          animation-name: "scrollanimation1", "scrollanimation2";
-  -webkit-animation-delay: 0s, 2s;
-          animation-delay: 0s, 2s;
-  -webkit-animation-duration: 2s, 8s;
-          animation-duration: 2s, 8s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-}
+/* div.scroll-animation {
+    position: absolute;
+    right: 50px;
+    bottom: 90px;
+    width: 20px;
+    height: 200px;
+    div.sa-text {
+        p {
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+    }
+    div.sa-line {
+        width: 1px;
+        height: 100px;
+        margin: 10px auto 0;
+        background: black;
 
+
+        animation-fill-mode: forwards;
+        animation-name: "scrollanimation1", "scrollanimation2";
+        animation-delay: 0s, 2s;
+        animation-duration: 2s, 8s;
+        animation-iteration-count: infinite;
+    }
+} 언젠간 만들겠지 */
 @-webkit-keyframes scrollanimation1 {
   0% {
     transform-origin: top;
@@ -113,7 +111,6 @@ div.scroll-animation div.sa-line {
     transform: scale(1);
   }
 }
-
 @keyframes scrollanimation1 {
   0% {
     transform-origin: top;
@@ -158,56 +155,56 @@ div.notice-container div.notice-title {
   position: relative;
   width: 10%;
   height: 100%;
-  border: 1px solid red;
-  box-sizing: border-box;
-  /* &::after {
-      content: "";
-      width: 1px;
-      height: 20px;
-      position: absolute;
-      background: rgba(0, 0, 0, 0.2);
-      top: 50%;
-      right: -20px;
-      transform: translateY(-45%);
-  } */
 }
 div.notice-container div.notice-title img {
   transform: translateY(4px);
   margin: 0 5px;
 }
+div.notice-container div.notice-title::after {
+  content: "";
+  width: 1px;
+  height: 20px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
+  top: 50%;
+  right: -20px;
+  transform: translateY(-45%);
+}
 div.notice-container .notice-content {
   display: flex;
   position: relative;
   width: 80%;
+  margin-left: 20px;
   height: 100%;
-  border: 1px solid red;
-  box-sizing: border-box;
 }
 div.notice-container .notice-content .slide {
   display: flex;
+  opacity: 0;
   position: absolute;
   width: 100%;
   height: 100%;
-  background: pink;
-  z-index: 0;
+  transition: 300ms;
 }
-div.notice-container .notice-content .slide span {
-  border: 1px solid blue;
-  box-sizing: border-box;
+div.notice-container .notice-content .slide a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+div.notice-container .notice-content .slide a span {
   display: flex;
   height: 100%;
   align-items: center;
 }
-div.notice-container .notice-content .slide span:first-child {
+div.notice-container .notice-content .slide a span:first-child {
   width: 15%;
   justify-content: center;
 }
-div.notice-container .notice-content .slide span:last-child {
+div.notice-container .notice-content .slide a span:last-child {
   width: 85%;
   margin-left: 2%;
 }
-div.notice-container .showing {
-  z-index: 1;
+div.notice-container .notice-content .showing {
+  opacity: 1;
 }
 div.notice-container div.notice-more {
   display: flex;
@@ -215,8 +212,12 @@ div.notice-container div.notice-more {
   align-items: center;
   width: 10%;
   height: 100%;
-  border: 1px solid red;
-  box-sizing: border-box;
+}
+div.notice-container div.notice-more img {
+  transition: 200ms;
+}
+div.notice-container div.notice-more:hover img {
+  transform: translateX(10px);
 }
 
 /*notice*/
@@ -260,46 +261,118 @@ div.news-container div.news-title div.news-slide-btn .rightbtn {
 }
 
 div.news-content-wrap {
-  display: flex;
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
 }
 div.news-content-wrap div.news-content {
-  display: flex;
-  flex-direction: column;
-  width: 28%;
+  display: inline-block;
+  position: relative;
+  width: 30%;
+  margin-right: 5%;
+  left: -50px;
 }
-div.news-content-wrap div.news-content div.news-wrap {
+div.news-content-wrap div.news-content a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /*이거 해결해야함 미완성*/
+}
+div.news-content-wrap div.news-content a div.news-wrap {
   width: 100%;
   overflow: hidden;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-div.news-content-wrap div.news-content div.news-wrap img {
+div.news-content-wrap div.news-content a div.news-wrap img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: 500ms;
 }
-div.news-content-wrap div.news-content p.news-badge {
+div.news-content-wrap div.news-content a div.news-wrap div.news-more {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50px;
+  background: #1f5153;
+  transition: 500ms;
+  opacity: 0;
+}
+div.news-content-wrap div.news-content a div.news-wrap div.news-more p {
+  color: white;
+}
+div.news-content-wrap div.news-content a p.news-badge {
   position: absolute;
   padding: 2px 20px;
   margin: 1px;
   font-size: 14px;
   font-weight: 500;
+  top: 0;
+  left: 0;
   background: white;
   border: 1px solid #1f5153;
   box-sizing: border-box;
+  transition: 500ms;
 }
-div.news-content-wrap div.news-content p.news-period {
+div.news-content-wrap div.news-content a p.news-period {
   font-size: 14px;
   font-weight: bold;
   color: #666;
   margin-bottom: 10px;
   font-family: "Gotham", sans-serif;
 }
-div.news-content-wrap div.news-content p.news-title {
+div.news-content-wrap div.news-content a p.news-title {
   font-size: 20px;
   font-weight: 500;
 }
+div.news-content-wrap div.news-content a:hover div.news-wrap img {
+  filter: brightness(0.5);
+  transform: scale(1.1);
+}
+div.news-content-wrap div.news-content a:hover div.news-wrap div.news-more {
+  opacity: 1;
+}
+div.news-content-wrap div.news-content a:hover p.news-badge {
+  filter: brightness(0.5);
+}
 
 /*news*/
+div.relic-container {
+  width: 80%;
+  margin: 100px auto;
+}
+div.relic-container div.relic-title p {
+  text-align: center;
+  font-size: 40px;
+}
+div.relic-container div.relic-title::after {
+  margin-top: 100px;
+  width: 100%;
+  content: "";
+  display: block;
+  border: 1px solid black;
+}
+div.relic-container div.relic-wrap {
+  display: flex;
+}
+div.relic-container div.relic-wrap div.relic {
+  width: 25%;
+  padding: 10px;
+  overflow: hidden;
+}
+div.relic-container div.relic-wrap div.relic img {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 /*shortcut*/
 div.shortcut {
   width: 100%;
@@ -355,34 +428,188 @@ div.shortcut ul li a:hover div.shortcut-image-tray img {
 }
 
 /*shortcut*/
-/*디테일 손봐야함*/
-/*하트 펌핑 keyframe 애니메이션?*/
 aside.donationbtnside {
   position: fixed;
   bottom: 80px;
   left: 50px;
   width: 85px;
   height: 85px;
-  background: #dddddd;
+  background: #eeeeee;
   border-radius: 50%;
   z-index: 100;
+  box-shadow: -1px 1px 10px #bbbbbb;
 }
 aside.donationbtnside div.donationbtn {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
 aside.donationbtnside div.donationbtn a {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 aside.donationbtnside div.donationbtn a img {
   width: 20px;
+  margin: 5px 0;
+  -webkit-animation: "heartAnimation" 3000ms infinite;
+          animation: "heartAnimation" 3000ms infinite;
 }
 aside.donationbtnside div.donationbtn a p {
   text-align: center;
   font-size: 12px;
   font-weight: bold;
+}
+aside.donationbtnside:hover + div.circle div.circle1 {
+  -webkit-animation: "circleWave1" 2000ms infinite;
+          animation: "circleWave1" 2000ms infinite;
+}
+aside.donationbtnside:hover + div.circle div.circle2 {
+  -webkit-animation: "circleWave2" 2000ms infinite;
+          animation: "circleWave2" 2000ms infinite;
+}
+aside.donationbtnside:hover + div.circle div.circle3 {
+  -webkit-animation: "circleWave3" 2000ms infinite;
+          animation: "circleWave3" 2000ms infinite;
+}
+
+div.circle1 {
+  position: fixed;
+  bottom: 80px;
+  left: 50px;
+  width: 85px;
+  height: 85px;
+  background: #1f5153;
+  border-radius: 50%;
+  z-index: 99;
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+div.circle2 {
+  position: fixed;
+  bottom: 80px;
+  left: 50px;
+  width: 85px;
+  height: 85px;
+  background: #3b9b9e;
+  border-radius: 50%;
+  z-index: 98;
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+div.circle3 {
+  position: fixed;
+  bottom: 80px;
+  left: 50px;
+  width: 85px;
+  height: 85px;
+  background: #6ed8db;
+  border-radius: 50%;
+  z-index: 97;
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+@-webkit-keyframes heartAnimation {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.2);
+  }
+  25% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes heartAnimation {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.2);
+  }
+  25% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes circleWave1 {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+@keyframes circleWave1 {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes circleWave2 {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+@keyframes circleWave2 {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes circleWave3 {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+@keyframes circleWave3 {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }/*# sourceMappingURL=home.css.map */

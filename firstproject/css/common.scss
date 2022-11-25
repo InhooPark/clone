@@ -196,11 +196,6 @@ header {
 
 /*subpage header*/
 div.subpage-header{
-    /* 
-    position: fixed;
-    top: 0; 
-    스크립트 연동해서 y좌표 100이상일경우 position:fixed, top:0 고정해야함
-    */
     width: 100%;
     height: 50px;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -264,7 +259,12 @@ div.subpage-header{
         }
     }
 }
-/*내용 추가해야함*/
+
+
+div.subpage-header.sub-scroll{
+    position: fixed;
+    top:0;
+}
 /*subpage header*/
 
 
@@ -275,7 +275,6 @@ div.subpage-header{
 
 /*footer*/
 /*newsletter*/
-/*뉴스레터 위쪽에 줄 넣어야함*/
 div.newsletter{
     &::before{
         content: '';
@@ -369,7 +368,7 @@ footer {
                             border: none;
                             padding: 0 20px;
                             border-radius: 0;
-                            appearance: none; /*화살표 지우기*/
+                            appearance: none;
                             padding: 0 24px 0 12px;
                             font-size: 16px;
                             font-family: 'Noto Sans KR', sans-serif;
@@ -441,7 +440,7 @@ aside.upbtnside{
     background: black;
     z-index: 100;
     transform: scale(0);
-    transition: 200ms; /*해결이 안된다*/
+    transition: 200ms;
     
     a{
         div.upbtn{
@@ -461,28 +460,5 @@ aside.upbtnside{
     }
 }
 aside.upbtnside.disable{
-    /* animation: 'upbtnanimation' 300ms forwards; */
     transform: scale(1);
 }
-
-
-/* .able{
-    animation: 'upbtnanimation2' 300ms forwards;
-} */
-
-/* @keyframes upbtnanimation {
-    0%{
-        transform: scale(1);
-    }
-    100%{
-        transform: scale(0);
-    }
-}
-@keyframes upbtnanimation2{
-    0%{
-        transform: scale(0);
-    }
-    100%{
-        transform: scale(1);
-    }
-} */

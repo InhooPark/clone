@@ -1,17 +1,25 @@
 const scTopbtn = document.querySelector('.upbtnside');
 const DISABLE = 'disable'
-/* const ABLE = 'able' */
+
+const scSubMenu = document.querySelector('.subpage-header');
+const SUBSCROLL = 'sub-scroll';
+
+let header = document.querySelector('header');
+let headerHeight = header.offsetHeight;
 
 
 window.addEventListener('scroll', function() {
     let scroll = window.scrollY;
 
-    if(scroll >= 200){
+    if(scroll >= headerHeight){
         scTopbtn.classList.add(DISABLE);
-        /* scTopbtn.classList.remove(ABLE); */
+        scSubMenu.classList.add(SUBSCROLL);
     }
     else{
         scTopbtn.classList.remove(DISABLE);
-        /* scTopbtn.classList.add(ABLE); */
+        scSubMenu.classList.remove(SUBSCROLL);
     }
 })
+
+
+

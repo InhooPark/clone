@@ -40,6 +40,62 @@ div.main-inner{
             /* 앞쪽에 돋보기 뒤쪽에 취소버튼 생기면 좋을듯 취소는 기본이니 돋보기 앞쪽에 */
         }
     }
+
+    div.relic-category-container{
+        display: flex;
+        width: 90%;
+        height: 50px;
+        margin: 40px auto;
+        justify-content: space-between;
+        div.relic-category-wrap{
+            display: flex;
+            width: 85%;
+            justify-content: space-around;
+            div.relic-category{
+                @include box(#dddddd);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:first-child{
+                    border: none;
+                }
+                p{
+                    padding: 15px;
+                    color:white;
+                    font-weight: 500;
+                    background-color: black;
+                }
+                span{
+                    padding: 0 10px;
+                }
+                div.relic-category-tag{
+                    display: inline-block;
+                    height: 100%;
+                    img{
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        div.relic-filter-wrap{
+            display: flex;
+            justify-content: end;
+            width: 15%;
+            div.relic-filter{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                @include box(#1f5153);
+                img{
+
+                }
+                span{
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
 }
 
 

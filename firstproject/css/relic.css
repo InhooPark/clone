@@ -42,5 +42,59 @@ div.main-inner div.search-container input::placeholder {
   font-weight: 600;
   letter-spacing: -1px;
 }
+div.main-inner div.relic-category-container {
+  display: flex;
+  width: 90%;
+  height: 50px;
+  margin: 40px auto;
+  justify-content: space-between;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap {
+  display: flex;
+  width: 85%;
+  justify-content: space-around;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category {
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category:first-child {
+  border: none;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category p {
+  padding: 15px;
+  color: white;
+  font-weight: 500;
+  background-color: black;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category span {
+  padding: 0 10px;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category div.relic-category-tag {
+  display: inline-block;
+  height: 100%;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category div.relic-category-tag img {
+  height: 100%;
+}
+div.main-inner div.relic-category-container div.relic-filter-wrap {
+  display: flex;
+  justify-content: end;
+  width: 15%;
+}
+div.main-inner div.relic-category-container div.relic-filter-wrap div.relic-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #1f5153;
+  box-sizing: border-box;
+}
+div.main-inner div.relic-category-container div.relic-filter-wrap div.relic-filter span {
+  padding: 0 10px;
+}
 
 /*notice.js의 검색알고리즘 가져올듯*//*# sourceMappingURL=relic.css.map */

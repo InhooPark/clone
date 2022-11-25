@@ -145,7 +145,8 @@ header div.head-menu div.main-menu > ul > li > a {
   font-weight: 500;
 }
 header div.head-menu div.main-menu > ul > li > ul {
-  display: none;
+  display: block;
+  opacity: 0;
   position: absolute;
   top: 101px;
   left: 50%;
@@ -155,6 +156,7 @@ header div.head-menu div.main-menu > ul > li > ul {
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: white;
   color: black;
+  transition: 200ms;
 }
 header div.head-menu div.main-menu > ul > li > ul li {
   text-align: left;
@@ -174,7 +176,7 @@ header div.head-menu div.main-menu > ul > li > ul li:hover a {
   /* 해당 페이지에서는 전환이 ON 되어있게 만들면 좋겠다. */
 }
 header div.head-menu div.main-menu > ul > li:hover ul {
-  display: block;
+  opacity: 1;
 }
 
 /*header*/

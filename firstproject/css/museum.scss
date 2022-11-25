@@ -4,71 +4,92 @@
     box-sizing: border-box;
 }
 
-div.sub-header-title{
-    h2{
+div.sub-header-title {
+    h2 {
         text-align: center;
         font-size: 60px;
         letter-spacing: 5px;
         margin: 130px 0 100px;
     }
-    
-    div.museum-visual{
-        
+
+    div.museum-visual {
         height: 400px;
         overflow: hidden;
-        img{
+        img {
             width: 100%;
             object-fit: cover;
         }
     }
 }
 
-div.main-inner{
+main {
+    @include box(transparent);
+    position: relative;
+}
+div.bgtext {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    z-index: -1;
+    overflow: hidden;
+    img {
+        animation: textani 1000ms;
+    }
+}
+@keyframes textani {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+div.main-inner {
     width: 70%;
 
     margin: 80px auto;
 
-    h4{
+    h4 {
         font-size: 32px;
         font-weight: bold;
     }
-    p{
+    p {
         margin-bottom: 2rem;
         line-height: 1.5;
 
-        &.stitle{
+        &.stitle {
             font-size: 32px;
             line-height: normal;
-            b{
+            b {
                 font-weight: 500;
             }
         }
     }
 
-    
-    div.leftside{
+    div.leftside {
         width: 35%;
     }
-    div.rightside{
+    div.rightside {
         width: 65%;
     }
 
-
-    div.top-content{
+    div.top-content {
         display: flex;
         margin-bottom: 5rem;
     }
-    div.bottom-content{
+    div.bottom-content {
         display: flex;
-        div.rightside{
-            div.imggrid{
+        div.rightside {
+            div.imggrid {
                 @include box(#e0e0e0);
                 position: relative;
                 width: 100%;
                 padding-top: 60%;
-                background: url('../images/common/grid.svg') repeat;
-                
-                img{
+                background: url("../images/common/grid.svg") repeat;
+
+                img {
                     position: absolute;
                     display: block;
                     width: 30%;
@@ -79,29 +100,26 @@ div.main-inner{
                 }
             }
 
-            div.download{
-                div{
+            div.download {
+                div {
                     margin: 30px 15px 0 0;
                     display: inline-block;
                     width: 200px;
                     height: 50px;
                     @include box(#e0e0e0);
-                    
 
-                    a{
+                    a {
                         display: flex;
                         width: 100%;
                         height: 100%;
                         justify-content: center;
                         align-items: center;
-                        img{
+                        img {
                             margin-right: 10px;
                         }
                     }
-
                 }
             }
         }
     }
-
 }

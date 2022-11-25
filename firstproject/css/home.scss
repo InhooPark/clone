@@ -337,11 +337,12 @@ div.relic-container {
             width: 100%;
             content: "";
             display: block;
-            border: 1px solid black;
+            border-top: 2px solid black;
         }
     }
 
     div.relic-wrap {
+        margin-top: 20px;
         display: flex;
         div.relic {
             width: 25%;

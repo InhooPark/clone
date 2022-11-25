@@ -12,6 +12,29 @@ div.sub-header-title{
         margin: 130px 0;
     }
 }
+main {
+    @include box(transparent);
+    position: relative;
+}
+div.bgtext {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    z-index: -1;
+    overflow: hidden;
+    img{
+        animation: textani 1000ms;
+    }
+}
+@keyframes textani {
+    0%{
+        transform: translateX(100%);
+    }    
+    100%{
+        transform: translateX(0);
+    }
+}
 
 div.main-inner {
     width: 70%;

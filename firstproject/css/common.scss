@@ -153,7 +153,8 @@ header {
                         font-weight: 500;
                     }
                     > ul {
-                        display: none;
+                        display: block;
+                        opacity: 0;
                         position: absolute;
                         top: 101px;
                         left: 50%;
@@ -163,6 +164,7 @@ header {
                         border: 1px solid rgba(0,0,0,0.2);
                         background: white;
                         color: black;
+                        transition: 200ms;
                         li {
                             text-align: left;
                             a {
@@ -185,7 +187,7 @@ header {
                     }
 
                     &:hover ul {
-                        display: block;
+                        opacity: 1;
                     }
                 }
             }

@@ -35,6 +35,7 @@ header {
                     display: inline-block;
                     line-height: 100px;
                     vertical-align: middle;
+                    position: relative;
                     ul {
                         li {
                             display: inline-block;
@@ -153,8 +154,7 @@ header {
                         font-weight: 500;
                     }
                     > ul {
-                        display: block;
-                        opacity: 0;
+                        display: none;
                         position: absolute;
                         top: 101px;
                         left: 50%;
@@ -164,7 +164,6 @@ header {
                         border: 1px solid rgba(0,0,0,0.2);
                         background: white;
                         color: black;
-                        transition: 200ms;
                         li {
                             text-align: left;
                             a {
@@ -187,13 +186,52 @@ header {
                     }
 
                     &:hover ul {
-                        opacity: 1;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+/*버거메뉴 onclick시 오픈 header none*/
+div.burgers{
+    display: none;
+    position: absolute;
+    background: #1F5153;
+    width: 100%;
+    z-index: 10;
+    > ul{
+        width: 100%;
+        margin: 0 20%;
+        display: flex;
+        justify-content: space-around;
+        > li{
+            text-align: center;
+            > a{
+                @include box(red);
+                display: inline-block;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                padding: 20px 20px;
+            }
+            > ul{
+                > li{
+                    @include box(blue);
+                    a{
+                        display: inline-block;
+                        font-weight: 100;
+                        color: white;
+                        padding: 10px ;
                     }
                 }
             }
         }
     }
 }
+/*버거메뉴 onclick시 오픈 header none*/
 /*header*/
 
 /*subpage header*/
@@ -203,6 +241,7 @@ div.subpage-header{
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     background: white;
+    z-index: 10;
     div.subpage-header-inner{
         width: 70%;
         height: 100%;

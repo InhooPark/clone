@@ -115,6 +115,65 @@ div.main-inner{
             }
         }
     }
+
+    div.relic-container{
+        /*뭘까 대체 masonry를 파야겠다.*/
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 3%;
+        div.relic-wrap{
+            background: #fafafa;
+            a{
+                display: block;
+                div.relic-image-wrap{
+                    width: 100%;
+                    overflow: hidden;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                        transition: 600ms;
+                    }
+                    div.relic-more{
+                        width: 50%;
+                        height: 50px;
+                        background: #1f5153;
+                        position: absolute;
+                        font-size: 14px;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        opacity: 0;
+                        transition: 600ms;
+                    }
+                }
+                div.relic-text-wrap{
+                    width: 100%;
+                    padding: 5%;
+                    p{
+                        line-height: 2;
+                        &:first-child{
+                            font-size: 12px;
+                        }
+                        &:last-child{
+                            font-size: 16px;
+                        }
+                    }
+                }
+                &:hover div.relic-image-wrap img{
+                    transform: scale(1.2);
+                    filter: brightness(0.5);
+                }
+                &:hover div.relic-image-wrap div.relic-more{
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }
 
 

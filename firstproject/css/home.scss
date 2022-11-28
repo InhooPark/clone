@@ -323,7 +323,7 @@ div.news-content-wrap {
 
 /*news*/
 
-div.relic-container {
+/* div.relic-container {
     width: 80%;
     margin: 100px auto;
     div.relic-title {
@@ -357,7 +357,45 @@ div.relic-container {
         }
     }
 }
+ */
 
+div.relic-container{
+    width: 80%;
+    margin: 100px auto;
+
+    div.relic-title {
+        
+        width: 100%;
+        p {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        &::after {
+            margin-top: 100px;
+            width: 100%;
+            content: "";
+            display: block;
+            border-top: 2px solid black;
+        }
+    }
+
+
+
+    div.relic-wrap{
+        column-count: 4;
+        @include box(red);
+        div.relic{
+            width: 100%;
+            overflow: hidden;
+            @include box(blue);
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
 /*shortcut*/
 div.shortcut {
     width: 100%;

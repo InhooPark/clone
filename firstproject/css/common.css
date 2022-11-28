@@ -35,6 +35,7 @@ header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list {
   display: inline-block;
   line-height: 100px;
   vertical-align: middle;
+  position: relative;
 }
 header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li {
   display: inline-block;
@@ -145,8 +146,7 @@ header div.head-menu div.main-menu > ul > li > a {
   font-weight: 500;
 }
 header div.head-menu div.main-menu > ul > li > ul {
-  display: block;
-  opacity: 0;
+  display: none;
   position: absolute;
   top: 101px;
   left: 50%;
@@ -156,7 +156,6 @@ header div.head-menu div.main-menu > ul > li > ul {
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: white;
   color: black;
-  transition: 200ms;
 }
 header div.head-menu div.main-menu > ul > li > ul li {
   text-align: left;
@@ -176,9 +175,47 @@ header div.head-menu div.main-menu > ul > li > ul li:hover a {
   /* 해당 페이지에서는 전환이 ON 되어있게 만들면 좋겠다. */
 }
 header div.head-menu div.main-menu > ul > li:hover ul {
-  opacity: 1;
+  display: block;
 }
 
+/*버거메뉴 onclick시 오픈 header none*/
+div.burgers {
+  display: none;
+  position: absolute;
+  background: #1F5153;
+  width: 100%;
+  z-index: 10;
+}
+div.burgers > ul {
+  width: 100%;
+  margin: 0 20%;
+  display: flex;
+  justify-content: space-around;
+}
+div.burgers > ul > li {
+  text-align: center;
+}
+div.burgers > ul > li > a {
+  border: 1px solid red;
+  box-sizing: border-box;
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 20px 20px;
+}
+div.burgers > ul > li > ul > li {
+  border: 1px solid blue;
+  box-sizing: border-box;
+}
+div.burgers > ul > li > ul > li a {
+  display: inline-block;
+  font-weight: 100;
+  color: white;
+  padding: 10px;
+}
+
+/*버거메뉴 onclick시 오픈 header none*/
 /*header*/
 /*subpage header*/
 div.subpage-header {
@@ -187,6 +224,7 @@ div.subpage-header {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   background: white;
+  z-index: 10;
 }
 div.subpage-header div.subpage-header-inner {
   width: 70%;

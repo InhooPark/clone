@@ -19,3 +19,22 @@ function slide() {
 
 slide();
 setInterval(slide, 3000);
+
+const LEFTBTN = document.querySelector(".leftbtn");
+const RIGHTTBTN = document.querySelector(".rightbtn");
+
+let NEWSWRAP = document.querySelector(".news-content-wrap");
+
+let leftcount = 0;
+let rightcount = 0;
+
+LEFTBTN.onclick = function () {
+    leftcount++;
+    rightcount--;
+    NEWSWRAP.style = `transform: translateX(${leftcount * -35}%)`;
+};
+RIGHTTBTN.onclick = function () {
+    leftcount--;
+    rightcount++;
+    NEWSWRAP.style = `transform: translateX(${rightcount * 35}%)`;
+};

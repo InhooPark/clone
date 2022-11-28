@@ -132,5 +132,65 @@ div.main-inner div.relic-category-container div.relic-filter-wrap div.relic-filt
 div.main-inner div.relic-category-container div.relic-filter-wrap div.relic-filter span {
   padding: 0 10px;
 }
+div.main-inner div.relic-container {
+  /*뭘까 대체 masonry를 파야겠다.*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  -moz-column-gap: 3%;
+       column-gap: 3%;
+}
+div.main-inner div.relic-container div.relic-wrap {
+  background: #fafafa;
+}
+div.main-inner div.relic-container div.relic-wrap a {
+  display: block;
+}
+div.main-inner div.relic-container div.relic-wrap a div.relic-image-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.main-inner div.relic-container div.relic-wrap a div.relic-image-wrap img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 600ms;
+}
+div.main-inner div.relic-container div.relic-wrap a div.relic-image-wrap div.relic-more {
+  width: 50%;
+  height: 50px;
+  background: #1f5153;
+  position: absolute;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 600ms;
+}
+div.main-inner div.relic-container div.relic-wrap a div.relic-text-wrap {
+  width: 100%;
+  padding: 5%;
+}
+div.main-inner div.relic-container div.relic-wrap a div.relic-text-wrap p {
+  line-height: 2;
+}
+div.main-inner div.relic-container div.relic-wrap a div.relic-text-wrap p:first-child {
+  font-size: 12px;
+}
+div.main-inner div.relic-container div.relic-wrap a div.relic-text-wrap p:last-child {
+  font-size: 16px;
+}
+div.main-inner div.relic-container div.relic-wrap a:hover div.relic-image-wrap img {
+  transform: scale(1.2);
+  filter: brightness(0.5);
+}
+div.main-inner div.relic-container div.relic-wrap a:hover div.relic-image-wrap div.relic-more {
+  opacity: 1;
+}
 
 /*notice.js의 검색알고리즘 가져올듯*//*# sourceMappingURL=relic.css.map */

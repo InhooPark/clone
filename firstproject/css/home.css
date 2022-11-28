@@ -315,9 +315,47 @@ div.news-content-wrap div.news-content a:hover p.news-badge {
 }
 
 /*news*/
+/* div.relic-container {
+    width: 80%;
+    margin: 100px auto;
+    div.relic-title {
+        p {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        &::after {
+            margin-top: 100px;
+            width: 100%;
+            content: "";
+            display: block;
+            border-top: 2px solid black;
+        }
+    }
+
+    div.relic-wrap {
+        margin-top: 20px;
+        display: flex;
+        div.relic {
+            width: 25%;
+            padding: 10px;
+            overflow: hidden;
+            img {
+                display: block;
+                min-width: 100%;
+                max-width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+ */
 div.relic-container {
   width: 80%;
   margin: 100px auto;
+}
+div.relic-container div.relic-title {
+  width: 100%;
 }
 div.relic-container div.relic-title p {
   text-align: center;
@@ -331,18 +369,19 @@ div.relic-container div.relic-title::after {
   border-top: 2px solid black;
 }
 div.relic-container div.relic-wrap {
-  margin-top: 20px;
-  display: flex;
+  -moz-column-count: 4;
+       column-count: 4;
+  border: 1px solid red;
+  box-sizing: border-box;
 }
 div.relic-container div.relic-wrap div.relic {
-  width: 25%;
-  padding: 10px;
+  width: 100%;
   overflow: hidden;
+  border: 1px solid blue;
+  box-sizing: border-box;
 }
 div.relic-container div.relic-wrap div.relic img {
-  display: block;
-  min-width: 100%;
-  max-width: 100%;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }

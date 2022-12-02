@@ -107,6 +107,22 @@
                         </li>
                     </ul>
                 </div>
+                <div class="msubpage-header-inner">
+                    <ul>
+                        <li class="this">
+                            <a href="#">공고·공지</a>
+                        </li>
+                        <li>
+                            <a href="#">박물관 새소식</a>
+                        </li>
+                        <li>
+                            <a href="#">뉴스레터(18~21년)</a>
+                        </li>
+                        <li>
+                            <a href="#">관장과의 대화</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <!--subpage header-->
         </header>
@@ -136,31 +152,31 @@
                         </tr>
                         <tr class="search-content">
                             <td>5</td>
-                            <td>2022년 제5회 임진예성포럼 개최 안내</td>
+                            <td class="board-title">2022년 제5회 임진예성포럼 개최 안내</td>
                             <td>2022.11.21</td>
                             <td>24</td>
                         </tr>
                         <tr class="search-content">
                             <td>4</td>
-                            <td>출토복식 전시장 개편 공개</td>
+                            <td class="board-title">출토복식 전시장 개편 공개</td>
                             <td>2022.09.19</td>
                             <td>30</td>
                         </tr>
                         <tr class="search-content">
                             <td>3</td>
-                            <td>2022년 &lt찾아가는 박물관&gt(어르신 대상) 하반기 교육 신청 안내</td>
+                            <td class="board-title">2022년 &lt찾아가는 박물관&gt(어르신 대상) 하반기 교육 신청 안내</td>
                             <td>2022.08.30</td>
                             <td>12</td>
                         </tr>
                         <tr class="search-content">
                             <td>2</td>
-                            <td>경기도박물관 상설전시실 전면개편</td>
+                            <td class="board-title">경기도박물관 상설전시실 전면개편</td>
                             <td>2020.07.27</td>
                             <td>50</td>
                         </tr>
                         <tr class="search-content">
                             <td>1</td>
-                            <td>&lt경기도박물관 X 성수미술관&gt 팝업스토어 오픈</td>
+                            <td class="board-title">&lt경기도박물관 X 성수미술관&gt 팝업스토어 오픈</td>
                             <td>2020.06.21</td>
                             <td>21</td>
                         </tr>
@@ -174,9 +190,11 @@
             <h2>뉴스레터</h2>
             <p>박물관의 새로운 소식을 받으시려면 뉴스레터에 가입해 주세요</p>
             <div class="subscription">
-                <input type="email" placeholder="이메일을 입력해주세요." />
-                <button type="submit">구독하기</button>
+                <input id="email" type="text" placeholder="이메일을 입력해주세요."/>
+                <button id="emailBtn" type="submit">구독하기</button>
             </div>
+            
+            <p class="email-check-text"></p>
         </div>
         <!--footer-->
         <footer>

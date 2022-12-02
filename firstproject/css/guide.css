@@ -85,4 +85,70 @@ div.main-inner div.view-time table tr td b {
 }
 div.main-inner div.view-program table tr.color-title {
   background: rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 1024px) {
+  div.main-inner {
+    width: 95%;
+    position: relative;
+    margin: 0 auto;
+  }
+  div.main-inner h2 {
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 5px;
+    margin: 100px 0 0 0;
+  }
+  div.main-inner h4 {
+    font-size: 18px;
+    line-height: 3;
+  }
+  div.main-inner * table {
+    width: 100%;
+    margin-bottom: 30px;
+    border-top: 2px solid black;
+    text-align: center;
+  }
+  div.main-inner * table tr,
+div.main-inner * table th,
+div.main-inner * table td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    vertical-align: middle;
+  }
+  div.main-inner * table th {
+    font-size: 12px;
+    font-weight: 400;
+    width: 150px;
+  }
+  div.main-inner * table td {
+    font-size: 12px;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  div.main-inner div.view-time table tr td span {
+    color: red;
+  }
+  div.main-inner div.view-time table tr td b {
+    font-weight: 500;
+    font-size: 12px;
+  }
+  div.main-inner div.view-program table tr.color-title {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  div.main-inner div.view-notice {
+    margin-bottom: 100px;
+  }
+  div.main-inner div.view-notice dl li {
+    font-size: 14px;
+    line-height: 2;
+  }
+}
+@media screen and (max-width: 480px) {
+  div.main-inner div.view-notice {
+    margin-bottom: 40px;
+  }
+  div.main-inner div.view-notice dl li {
+    font-size: 12px;
+    line-height: 2;
+  }
 }/*# sourceMappingURL=guide.css.map */

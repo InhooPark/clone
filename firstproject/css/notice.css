@@ -1,12 +1,5 @@
 @charset "UTF-8";
 @import url(./common.css);
-div.sub-header-title h2 {
-  text-align: center;
-  font-size: 60px;
-  letter-spacing: 5px;
-  margin: 130px 0;
-}
-
 .is-hidden {
   display: none;
 }
@@ -55,7 +48,7 @@ div.main-inner div.search-container {
   text-align: center;
 }
 div.main-inner div.search-container input {
-  width: 50%;
+  width: 800px;
   height: 50px;
   border: none;
   outline: none;
@@ -91,6 +84,70 @@ div.main-inner div.search-content-table table tr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   line-height: 3;
 }
-div.main-inner div.search-content-table table tr td.serach-content {
-  text-align: start;
+div.main-inner div.search-content-table table tr td {
+  padding: 0 20px;
+}
+div.main-inner div.search-content-table table tr td.board-title {
+  text-align: left;
+}
+
+@media screen and (max-width: 1024px) {
+  div.main-inner {
+    width: 95%;
+  }
+  div.main-inner div.search-container input {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  div.main-inner {
+    width: 95%;
+    margin: 50px auto;
+  }
+  div.main-inner div.search-content-table {
+    margin: 50px auto;
+    width: 100%;
+  }
+  div.main-inner div.search-content-table table {
+    border-top: 2px solid black;
+    width: 100%;
+    text-align: center;
+  }
+  div.main-inner div.search-content-table table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  div.main-inner div.search-content-table table tr th {
+    display: none;
+  }
+  div.main-inner div.search-content-table table tr td {
+    padding: 0 20px;
+    display: inline-block;
+    width: initial;
+    float: left;
+    line-height: 2;
+    margin: 0;
+    padding: 0 10px;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+  }
+  div.main-inner div.search-content-table table tr td:last-child::before {
+    content: "";
+    width: 1px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: translate(-10px, 12px);
+  }
+  div.main-inner div.search-content-table table tr td:last-child {
+    margin-bottom: 10px;
+  }
+  div.main-inner div.search-content-table table tr td.board-title {
+    width: 100%;
+    color: black;
+    margin-top: 10px;
+  }
+  div.main-inner div.search-content-table table tr td:first-child {
+    display: none;
+  }
 }/*# sourceMappingURL=notice.css.map */

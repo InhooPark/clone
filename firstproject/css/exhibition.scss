@@ -4,15 +4,6 @@
     box-sizing: border-box;
 }
 
-div.sub-header-title{
-    h2{
-        text-align: center;
-        font-size: 60px;
-        letter-spacing: 5px;
-        margin: 130px 0 110px;
-    }
-}
-
 main {
     @include box(transparent);
     position: relative;
@@ -67,9 +58,12 @@ div.main-inner {
             margin-bottom: 50px;
         }
         div.ex-local-content {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             a {
+                display: block;
+                width: 48%;
                 div.ex-local-img-wrap {
                     width: 100%;
                     overflow: hidden;
@@ -100,6 +94,64 @@ div.main-inner {
                 }
                 &:hover div.ex-local-img-wrap img{
                     transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px){
+    div.main-inner {
+        width: 95%;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    .subpage-header{
+        display: none;
+    }
+
+    div.main-inner {
+        div.achive-link {
+            display: flex;
+            justify-content: end;
+            a {
+                font-size: 14px;
+                padding: 20px;
+                img{
+                    transition: initial;
+                }
+                &:hover img{
+                    transform: initial;
+                }
+            }
+    
+            
+        }
+    
+        div.ex-local-content-wrap {
+            &::before {
+                content: "";
+                display: block;
+                border: 1px solid black;
+                margin-bottom: 20px;
+            }
+            div.ex-local-content {
+                flex-direction: column;
+                a {
+                    width: 100%;
+                    div.ex-local-text-wrap{
+                        span.badge{
+                            font-size:10px;
+                        }
+                        h4{
+                            font-size: 18px;
+                        }
+                        p{
+                            font-size: 12px;
+                        }
+                    }
                 }
             }
         }

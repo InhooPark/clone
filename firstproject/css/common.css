@@ -401,7 +401,7 @@ footer div.top-foot div.tf-right {
   align-items: flex-end;
 }
 footer div.top-foot div.tf-right div.tf-right-wrap ul li {
-  margin-right: 20px;
+  margin-right: 15 px;
   display: inline;
 }
 footer div.top-foot div.tf-right div.tf-right-wrap ul li a {
@@ -501,7 +501,7 @@ aside.upbtnside.disable {
   transform: scale(1);
 }
 
-@media screen and (max-width: 1402px) {
+@media screen and (max-width: 1400px) {
   div.top-menu {
     display: flex;
     justify-content: space-between;

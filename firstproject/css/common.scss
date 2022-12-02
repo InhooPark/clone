@@ -305,6 +305,8 @@ div.subpage-header {
         height: 100%;
         margin: 0 auto;
         border-top: none;
+        white-space: nowrap;
+        overflow: hidden;
         ///////////////////////////////////
         ul {
             display: flex;

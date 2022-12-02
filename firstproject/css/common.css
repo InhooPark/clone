@@ -288,6 +288,8 @@ div.subpage-header div.msubpage-header-inner {
   height: 100%;
   margin: 0 auto;
   border-top: none;
+  white-space: nowrap;
+  overflow: hidden;
 }
 div.subpage-header div.msubpage-header-inner ul {
   display: flex;

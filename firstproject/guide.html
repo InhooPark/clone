@@ -106,6 +106,13 @@
                         </li>
                     </ul>
                 </div>
+                <div class="msubpage-header-inner">
+                    <ul>
+                        <li class="this">
+                            <a href="#">관람안내</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <!--subpage header-->
         </header>
@@ -123,7 +130,7 @@
                     <table>
                         <tr>
                             <th>관람시간</th>
-                            <td><b>10:00 - 18:00</b><br /><span>(입장마감 17:20)</span></td>
+                            <td><b>10:00 - 18:00</b><br><span>(입장마감 17:20)</span></td>
                         </tr>
                         <tr>
                             <th>휴관일</th>
@@ -186,9 +193,11 @@
         <div class="newsletter">
             <p>박물관의 새로운 소식을 받으시려면 뉴스레터에 가입해 주세요</p>
             <div class="subscription">
-                <input type="email" placeholder="이메일을 입력해주세요." />
-                <button type="submit">구독하기</button>
+                <input id="email" type="text" placeholder="이메일을 입력해주세요."/>
+                <button id="emailBtn" type="submit">구독하기</button>
             </div>
+            
+            <p class="email-check-text"></p>
         </div>
         <!--footer-->
         <footer>
@@ -246,11 +255,9 @@
 
         <!--aside upbtn-->
         <aside class="upbtnside">
-            <a href="#">
-                <div class="upbtn">
-                    <img src="./images/common/ic-angle-up-white-24-dp.svg" alt="위로가기버튼" />
-                </div>
-            </a>
+            <div class="upbtn">
+                <img src="./images/common/ic-angle-up-white-24-dp.svg" alt="위로가기버튼" />
+            </div>
         </aside>
         <!--aside upbtn-->
     </body>

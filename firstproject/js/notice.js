@@ -2,7 +2,6 @@ let keyword = document.querySelectorAll('.search-content');
 
 function wordSearch(){
     let search_query = document.getElementById("search-box").value;
-    console.log(search_query);
 
     for (var i = 0; i < keyword.length; i++) {
         if(keyword[i].textContent.toLowerCase()

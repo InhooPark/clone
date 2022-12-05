@@ -1,11 +1,4 @@
 @import url(./common.css);
-div.sub-header-title h2 {
-  text-align: center;
-  font-size: 60px;
-  letter-spacing: 5px;
-  margin: 130px 0 110px;
-}
-
 main {
   border: 1px solid transparent;
   box-sizing: border-box;
@@ -66,8 +59,13 @@ div.main-inner div.ex-local-content-wrap::before {
   margin-bottom: 50px;
 }
 div.main-inner div.ex-local-content-wrap div.ex-local-content {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+}
+div.main-inner div.ex-local-content-wrap div.ex-local-content a {
+  display: block;
+  width: 48%;
 }
 div.main-inner div.ex-local-content-wrap div.ex-local-content a div.ex-local-img-wrap {
   width: 100%;
@@ -100,4 +98,50 @@ div.main-inner div.ex-local-content-wrap div.ex-local-content a div.ex-local-tex
 }
 div.main-inner div.ex-local-content-wrap div.ex-local-content a:hover div.ex-local-img-wrap img {
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 1024px) {
+  div.main-inner {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .subpage-header {
+    display: none;
+  }
+  div.main-inner div.achive-link {
+    display: flex;
+    justify-content: end;
+  }
+  div.main-inner div.achive-link a {
+    font-size: 14px;
+    padding: 20px;
+  }
+  div.main-inner div.achive-link a img {
+    transition: initial;
+  }
+  div.main-inner div.achive-link a:hover img {
+    transform: initial;
+  }
+  div.main-inner div.ex-local-content-wrap::before {
+    content: "";
+    display: block;
+    border: 1px solid black;
+    margin-bottom: 20px;
+  }
+  div.main-inner div.ex-local-content-wrap div.ex-local-content {
+    flex-direction: column;
+  }
+  div.main-inner div.ex-local-content-wrap div.ex-local-content a {
+    width: 100%;
+  }
+  div.main-inner div.ex-local-content-wrap div.ex-local-content a div.ex-local-text-wrap span.badge {
+    font-size: 10px;
+  }
+  div.main-inner div.ex-local-content-wrap div.ex-local-content a div.ex-local-text-wrap h4 {
+    font-size: 18px;
+  }
+  div.main-inner div.ex-local-content-wrap div.ex-local-content a div.ex-local-text-wrap p {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=exhibition.css.map */

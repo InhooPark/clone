@@ -10,8 +10,6 @@
         <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
         <script defer src="./js/common.js"></script>
         <script defer src="./js/home.js"></script>
-
-        
     </head>
     <body>
         <!--header-->
@@ -47,11 +45,8 @@
                                 <span></span>
                             </div>
                         </a>
-                        
-
                     </div>
                 </div>
-                
 
                 <div class="main-menu">
                     <ul>
@@ -95,7 +90,7 @@
                 </div>
             </div>
 
-            <div class='burgers'>
+            <div class="burgers">
                 <ul>
                     <li>
                         <a href="./guide.html">이용안내</a>
@@ -133,7 +128,7 @@
                             <li><a href="./museum.html">박물관 소개</a></li>
                         </ul>
                     </li>
-                    
+
                     <li>
                         <a href="./museum.html">기타</a>
                         <ul>
@@ -149,6 +144,7 @@
             <div class="visual-container">
                 <div class="visual-video">
                     <video src="./images/main_visual.mp4" autoplay loop muted></video>
+                    <img src="./images/common/m_main_visual.png" alt="모바일비주얼" />
                 </div>
 
                 <div class="visual-notice">
@@ -169,24 +165,20 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- <div class="scroll-animation">
-                    <div class="sa-text">
-                        <p>S</p>
-                        <p>C</p>
-                        <p>R</p>
-                        <p>O</p>
-                        <p>L</p>
-                        <p>L</p>
-                    </div>
-                    <div class="sa-line"></div>
-                </div>  언젠간 만들겠지 -->
             </div>
 
             <div class="notice-container">
-                <div class="notice-title">
-                    <img src="./images/common/ic-notice-black-24-dp.svg" alt="공지" />
-                    <span>공지사항</span>
+                <div class="notice-title-wrap">
+                    <div class="notice-title">
+                        <img src="./images/common/ic-notice-black-24-dp.svg" alt="공지" />
+                        <span>공지사항</span>
+                    </div>
+                    <div class="notice-more">
+                        <a href="./notice.html">
+                            <span>더 알아보기</span>
+                            <img src="./images/common/ic-arrow-right-green-24-dp.svg" alt="화살표" />
+                        </a>
+                    </div>
                 </div>
 
                 <div class="notice-content">
@@ -203,26 +195,20 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="notice-more">
-                    <a href="./notice.html">
-                        <span>자세히 알아보기</span>
-                        <img src="./images/common/ic-arrow-right-green-24-dp.svg" alt="화살표" />
-                    </a>
-                </div>
             </div>
 
-            <div class="news-container">
+            <div class="news-container side-slide swiper mySwiper">
+                <div class="ani-text"></div>
                 <div class="news-title">
                     <h2>박물관 새소식</h2>
-                    <div class="news-slide-btn">
-                        <div class="leftbtn"></div>
-                        <div class="rightbtn"></div>
-                    </div>
+                </div>
+                <div class="news-slide-btn">
+                    <div class="leftbtn swiper-button-next"></div>
+                    <div class="rightbtn swiper-button-prev"></div>
                 </div>
 
-                <div class="news-content-wrap">
-                    <div class="news-content">
+                <div class="news-content-wrap swiper-wrapper">
+                    <div class="news-content swiper-slide">
                         <a href="#">
                             <div class="news-wrap">
                                 <img src="./images/news/news1.jpg" alt="" />
@@ -235,7 +221,7 @@
                         </a>
                     </div>
 
-                    <div class="news-content">
+                    <div class="news-content swiper-slide">
                         <a href="#">
                             <div class="news-wrap">
                                 <img src="./images/news/news2.jpg" alt="" />
@@ -248,7 +234,7 @@
                         </a>
                     </div>
 
-                    <div class="news-content">
+                    <div class="news-content swiper-slide">
                         <a href="#">
                             <div class="news-wrap">
                                 <img src="./images/news/news3.jpg" alt="" />
@@ -261,7 +247,7 @@
                         </a>
                     </div>
 
-                    <div class="news-content">
+                    <div class="news-content swiper-slide">
                         <a href="#">
                             <div class="news-wrap">
                                 <img src="./images/news/news3.jpg" alt="" />
@@ -274,7 +260,7 @@
                         </a>
                     </div>
 
-                    <div class="news-content">
+                    <div class="news-content swiper-slide">
                         <a href="#">
                             <div class="news-wrap">
                                 <img src="./images/news/news3.jpg" alt="" />
@@ -288,77 +274,186 @@
                     </div>
                 </div>
             </div>
+            <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-            <div class="relic-container">
+            <div class="relic-container side-slide">
+                <div class="ani-text"></div>
                 <div class="relic-title">
                     <p>소장유물</p>
                 </div>
 
-                <div class="relic-wrap">
-                    <div class="relic">
-                        <img src="./images/main/1637904878199_022_이돈상 초상.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 초상</p>
+                <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (24).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>송시열 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637904730058_021_홍경주 초상.jpg" alt="" />
-                        <p>서화</p>
-                        <p>홍경주 초상</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (23).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>김중만 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637905057393_023_이돈상 상초묵화.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 상초묵화</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (22).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>제갈량 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637905287210_024_이돈상 유지초본.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 유지초본</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (21).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>송시열 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-
-                    <div class="relic">
-                        <img src="./images/main/1637904878199_022_이돈상 초상.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 초상</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (20).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>김중만 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637904730058_021_홍경주 초상.jpg" alt="" />
-                        <p>서화</p>
-                        <p>홍경주 초상</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (19).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>임우 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637905057393_023_이돈상 상초묵화.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 상초묵화</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (18).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637905287210_024_이돈상 유지초본.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 유지초본</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (17).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>이돈상 유지초본</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-
-                    <div class="relic">
-                        <img src="./images/main/1637904878199_022_이돈상 초상.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 초상</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (16).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>이돈상 상초묵화</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637904730058_021_홍경주 초상.jpg" alt="" />
-                        <p>서화</p>
-                        <p>홍경주 초상</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (15).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>홍경주 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637905057393_023_이돈상 상초묵화.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 상초묵화</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (14).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>이돈상 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="relic">
-                        <img src="./images/main/1637905287210_024_이돈상 유지초본.jpg" alt="" />
-                        <p>서화</p>
-                        <p>이돈상 유지초본</p>
+                    <div class="grid-item">
+                        <div class="relic-wrap">
+                            <a href="#">
+                                <div class="relic-img">
+                                    <img src="./images/relic_fix/relic_img (13).jpg" alt="" />
+                                    <div class="relic-more"><p>자세히 알아보기</p></div>
+                                </div>
+                                <div class="relic-text">
+                                    <p>서화</p>
+                                    <p>이인엽 초상</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    
                 </div>
+
+                <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
             </div>
 
             <div class="shortcut">
@@ -410,9 +505,11 @@
             <h2>뉴스레터</h2>
             <p>박물관의 새로운 소식을 받으시려면 뉴스레터에 가입해 주세요</p>
             <div class="subscription">
-                <input type="email" placeholder="이메일을 입력해주세요." />
-                <button type="submit">구독하기</button>
+                <input id="email" type="text" placeholder="이메일을 입력해주세요." />
+                <button id="emailBtn" type="submit">구독하기</button>
             </div>
+
+            <p class="email-check-text"></p>
         </div>
         <footer>
             <div class="top-foot">
@@ -469,11 +566,9 @@
 
         <!--aside upbtn-->
         <aside class="upbtnside">
-            <a href="#">
-                <div class="upbtn">
-                    <img src="./images/common/ic-angle-up-white-24-dp.svg" alt="위로가기버튼" />
-                </div>
-            </a>
+            <div class="upbtn">
+                <img src="./images/common/ic-angle-up-white-24-dp.svg" alt="위로가기버튼" />
+            </div>
         </aside>
 
         <!--aside upbtn-->

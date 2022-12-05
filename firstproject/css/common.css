@@ -82,7 +82,7 @@ header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul li a.mlink i
 header div.head-menu div.top-menu div.sub-menu a.burger {
   width: 40px;
   height: 40px;
-  background-color: #1F5153;
+  background-color: #1f5153;
   display: inline-block;
   line-height: 100px;
   vertical-align: middle;
@@ -97,7 +97,7 @@ header div.head-menu div.top-menu div.sub-menu a.burger div.burger-wrap {
 }
 header div.head-menu div.top-menu div.sub-menu a.burger div.burger-wrap span {
   width: 18px;
-  height: 1px;
+  height: 2px;
   background-color: white;
   display: block;
   transition: 200ms;
@@ -129,7 +129,7 @@ header div.head-menu div.main-menu {
   top: 50%;
   transform: translate(-50%, -50%);
   line-height: 100px;
-  width: 40%;
+  width: 500px;
 }
 header div.head-menu div.main-menu > ul {
   display: flex;
@@ -170,7 +170,7 @@ header div.head-menu div.main-menu > ul > li > ul li a {
   transition: 400ms;
 }
 header div.head-menu div.main-menu > ul > li > ul li:hover a {
-  background: #1F5153;
+  background: #1f5153;
   color: white;
   /* 해당 페이지에서는 전환이 ON 되어있게 만들면 좋겠다. */
 }
@@ -182,7 +182,7 @@ header div.head-menu div.main-menu > ul > li:hover ul {
 div.burgers {
   display: none;
   position: absolute;
-  background: #1F5153;
+  background: #1f5153;
   width: 100%;
   z-index: 10;
 }
@@ -227,6 +227,7 @@ div.subpage-header {
   z-index: 10;
 }
 div.subpage-header div.subpage-header-inner {
+  display: block;
   width: 70%;
   height: 100%;
   margin: 0 auto;
@@ -281,19 +282,60 @@ div.subpage-header div.subpage-header-inner ul li.sub-category a {
   background-size: 10px;
   background-position: center right 5%;
 }
+div.subpage-header div.msubpage-header-inner {
+  display: none;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-top: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+div.subpage-header div.msubpage-header-inner ul {
+  display: flex;
+  height: 100%;
+}
+div.subpage-header div.msubpage-header-inner ul li {
+  height: 100%;
+  padding: 0 10px;
+  display: block;
+  border-right: initial;
+}
+div.subpage-header div.msubpage-header-inner ul li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+div.subpage-header div.msubpage-header-inner ul .this::after {
+  content: "";
+  display: block;
+  border-bottom: 2px solid black;
+  transform: translateY(-100%);
+}
 
-div.subpage-header.sub-scroll {
+.sub-scroll {
   position: fixed;
   top: 0;
 }
 
 /*subpage header*/
+div.sub-header-title h2 {
+  text-align: center;
+  font-size: 60px;
+  letter-spacing: 5px;
+  margin: 130px 0 110px;
+}
+
 /*footer*/
 /*newsletter*/
 div.newsletter {
   text-align: center;
-  margin: 80px 0;
+  padding-bottom: 80px;
   line-height: 50px;
+  background: url("../images/common/nsl_logo.svg") no-repeat;
+  background-position-x: 90%;
+  background-position-y: 160%;
 }
 div.newsletter::before {
   content: "";
@@ -305,18 +347,20 @@ div.newsletter h2 {
   font-size: 30px;
 }
 div.newsletter div.subscription {
-  width: 22%;
+  display: flex;
+  width: 400px;
   height: 40px;
   margin: 0 auto;
   line-height: 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 0;
 }
 div.newsletter div.subscription input {
   border: none;
   width: 70%;
   height: 100%;
-  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  background: white;
   font-size: 16px;
   text-indent: 5%;
 }
@@ -324,12 +368,11 @@ div.newsletter div.subscription input:focus {
   outline: none;
 }
 div.newsletter div.subscription button {
-  display: inline;
   border: none;
   padding: 0;
   width: 30%;
   height: 100%;
-  background: #1F5153;
+  background: #1f5153;
   color: white;
   outline: none;
   cursor: pointer;
@@ -337,7 +380,6 @@ div.newsletter div.subscription button {
 
 /*newsletter*/
 footer {
-  margin-top: 100px;
   padding: 65px 10%;
   background: black;
 }
@@ -361,7 +403,7 @@ footer div.top-foot div.tf-right {
   align-items: flex-end;
 }
 footer div.top-foot div.tf-right div.tf-right-wrap ul li {
-  margin-right: 20px;
+  margin-right: 15 px;
   display: inline;
 }
 footer div.top-foot div.tf-right div.tf-right-wrap ul li a {
@@ -441,21 +483,191 @@ aside.upbtnside {
   transform: scale(0);
   transition: 200ms;
 }
-aside.upbtnside a div.upbtn {
+aside.upbtnside div.upbtn {
   width: 100%;
   height: 100%;
   position: relative;
+  cursor: pointer;
 }
-aside.upbtnside a div.upbtn img {
+aside.upbtnside div.upbtn img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 aside.upbtnside:hover {
-  background: #1F5153;
+  background: #1f5153;
 }
 
 aside.upbtnside.disable {
   transform: scale(1);
+}
+
+@media screen and (max-width: 1400px) {
+  div.top-menu {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  div.top-menu div.sub-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  div.top-menu div.sub-menu nav.sub-menu-list ul {
+    display: none;
+  }
+  footer {
+    margin: 0 auto;
+  }
+  footer div.top-foot {
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  footer div.top-foot div.tf-left {
+    display: none;
+  }
+  footer div.top-foot div.tf-right {
+    display: flex;
+    align-items: center;
+  }
+  footer div.top-foot div.tf-right div.tf-right-wrap ul li:nth-child(4)::after {
+    display: none;
+  }
+  footer div.top-foot div.tf-right div.tf-right-wrap ul li:last-child {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 20px 140px;
+    border: 1px solid white;
+  }
+  footer div.mid-foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  footer div.mid-foot div.mf-left p {
+    display: flex;
+    justify-content: center;
+  }
+  footer div.mid-foot div.mf-right {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  footer div.bot-foot p {
+    color: gray;
+    font-weight: bold;
+    text-align: center;
+  }
+  footer div.bot-foot::before {
+    content: "";
+    display: block;
+    border-top: 1px solid gray;
+    margin: 30px 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  div.sub-header-title h2 {
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 5px;
+    margin: 100px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    width: 100%;
+    height: 60px;
+  }
+  header div.head-menu {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 100;
+  }
+  header div.head-menu div.top-menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2%;
+    align-items: center;
+    height: 100%;
+  }
+  header div.head-menu div.top-menu div.logo {
+    height: 60%;
+  }
+  header div.head-menu div.top-menu div.logo img {
+    height: 100%;
+  }
+  header div.head-menu div.top-menu div.sub-menu {
+    height: 100%;
+  }
+  header div.head-menu div.top-menu div.sub-menu nav.sub-menu-list ul {
+    display: none;
+  }
+  header div.head-menu div.top-menu div.sub-menu a.burger {
+    background-color: white;
+  }
+  header div.head-menu div.top-menu div.sub-menu a.burger div.burger-wrap span {
+    background-color: #1f5153;
+  }
+  header div.head-menu div.main-menu {
+    display: none;
+  }
+  .upbtnside {
+    display: none;
+  }
+  div.newsletter {
+    padding-bottom: 40px;
+  }
+  div.newsletter h2 {
+    font-size: 30px;
+  }
+  div.newsletter div.subscription {
+    display: flex;
+    width: 90%;
+  }
+  div.newsletter div.subscription input {
+    border: none;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    background: white;
+    text-indent: 1%;
+  }
+  div.newsletter div.subscription button {
+    border: none;
+    padding: 0;
+    width: 100px;
+    height: 100%;
+    background: #1f5153;
+    color: white;
+    outline: none;
+    cursor: pointer;
+  }
+  div.subpage-header div.subpage-header-inner {
+    display: none;
+  }
+  div.subpage-header div.msubpage-header-inner {
+    display: block;
+  }
+}
+@media screen and (max-width: 480px) {
+  div.subpage-header {
+    display: none;
+  }
+  footer {
+    padding: 30px 0;
+    background: black;
+  }
+  footer div.top-foot {
+    display: none;
+  }
+  footer div.mid-foot div.mf-left p {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=common.css.map */

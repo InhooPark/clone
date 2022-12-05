@@ -4,17 +4,9 @@
     box-sizing: border-box;
 }
 
-
-div.sub-header-title{
-    h2{
-        text-align: center;
-        font-size: 60px;
-        letter-spacing: 5px;
-        margin: 130px 0;
-    }
+.is-hidden {
+    display: none;
 }
-
-.is-hidden { display: none; }
 
 main {
     @include box(transparent);
@@ -27,154 +19,292 @@ div.bgtext {
     text-align: right;
     z-index: -1;
     overflow: hidden;
-    img{
+    img {
         animation: textani 1000ms;
     }
 }
 @keyframes textani {
-    0%{
+    0% {
         transform: translateX(100%);
-    }    
-    100%{
+    }
+    100% {
         transform: translateX(0);
     }
 }
 
-div.main-inner{
+.is-hidden {
+    display: none;
+}
+
+div.main-inner {
     width: 70%;
 
     margin: 50px auto;
 
-    div.search-container{
+    div.search-container {
         text-align: center;
-        input{
+        input {
             width: 50%;
             height: 50px;
             border: none;
             outline: none;
             font-size: 20px;
             border-bottom: 2px solid black;
-            &::placeholder{
-                color: rgba(0,0,0,0.4);
+            &::placeholder {
+                color: rgba(0, 0, 0, 0.4);
                 font-weight: 600;
                 letter-spacing: -1px;
             }
             /* 앞쪽에 돋보기 뒤쪽에 취소버튼 생기면 좋을듯 취소는 기본이니 돋보기 앞쪽에 */
         }
     }
-
-    div.relic-category-container{
+    ////////////////////////////////////////////////
+    div.relic-category-container {
         display: flex;
-        width: 90%;
-        height: 50px;
+        width: 100%;
         margin: 40px auto;
+        height: auto;
         justify-content: space-between;
-        div.relic-category-wrap{
+        div.relic-category-wrap {
+            height: 50px;
             display: flex;
-            width: 85%;
+            width: 100%;
             justify-content: space-around;
-            div.relic-category{
-                @include box(#dddddd);
+            div.relic-category {
+                @include box(rgba(0, 0, 0, 0.2));
                 display: flex;
-                justify-content: center;
                 align-items: center;
-                &:first-child{
+                &:first-child {
                     border: none;
                 }
-                p{
-                    padding: 15px;
-                    color:white;
+                p {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 20px;
+                    color: white;
+                    height: 100%;
                     font-weight: 500;
                     background-color: black;
+                    box-sizing: border-box;
                 }
-                span{
-                    padding: 0 10px;
-                }
-                div.relic-category-tag{
-                    display: inline-block;
+                div.relic-category-tag {
                     height: 100%;
-                    img{
+                    img {
                         height: 100%;
                     }
                 }
+                span {
+                    width: auto;
+                    padding: 0 15px;
+                }
             }
         }
-        div.relic-filter-wrap{
+        div.relic-filter-wrap {
             display: flex;
             justify-content: end;
-            width: 15%;
-            div.relic-filter{
+            width: 120px;
+            div.relic-filter {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 20px;
+                padding: 0 20px;
                 @include box(#1f5153);
-                span{
-                    padding: 0 10px;
+                span {
+                    padding: 0;
                 }
             }
         }
     }
+    ////////////////////////////////////////////////
 
-    div.relic-container{
-        /*뭘까 대체 masonry를 파야겠다.*/
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        column-gap: 3%;
-        div.relic-wrap{
-            background: #fafafa;
-            a{
+    div.relic-container {
+        div.grid {
+            width: 100%;
+            counter-reset: grid-item;
+            margin-top: 3%;
+            &:after {
+                content: "";
                 display: block;
-                div.relic-image-wrap{
+                clear: both;
+            }
+            div.grid-item {
+                width: 25%;
+                float: left;
+                padding: 1%;
+                div.relic-wrap {
                     width: 100%;
-                    overflow: hidden;
-                    position: relative;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    img{
-                        width: 100%;
-                        object-fit: cover;
-                        transition: 600ms;
-                    }
-                    div.relic-more{
-                        width: 50%;
-                        height: 50px;
-                        background: #1f5153;
-                        position: absolute;
-                        font-size: 14px;
-                        color: white;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        opacity: 0;
-                        transition: 600ms;
-                    }
-                }
-                div.relic-text-wrap{
-                    width: 100%;
-                    padding: 5%;
-                    p{
-                        line-height: 2;
-                        &:first-child{
-                            font-size: 12px;
+                    background: #fafafa;
+                    a {
+                        div.relic-img {
+                            position: relative;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                                object-fit: cover;
+                                transition: 300ms;
+                            }
+                            div.relic-more {
+                                opacity: 0;
+                                position: absolute;
+                                width: 60%;
+                                height: 50px;
+                                background: #1f5153;
+                                transition: 300ms;
+                                p {
+                                    display: flex;
+                                    width: 100%;
+                                    height: 100%;
+                                    justify-content: center;
+                                    align-items: center;
+                                    color: white;
+                                }
+                            }
                         }
-                        &:last-child{
-                            font-size: 16px;
+                        div.relic-text {
+                            width: 100%;
+                            padding: 20px;
+                            p {
+                                &:first-child {
+                                    font-size: 14px;
+                                }
+                                &:last-child {
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            div.relic-img img {
+                                filter: brightness(0.5);
+                                transform: scale(1.1);
+                            }
+                            div.relic-img div.relic-more {
+                                opacity: 1;
+                            }
                         }
                     }
-                }
-                &:hover div.relic-image-wrap img{
-                    transform: scale(1.2);
-                    filter: brightness(0.5);
-                }
-                &:hover div.relic-image-wrap div.relic-more{
-                    opacity: 1;
                 }
             }
         }
     }
 }
 
+/*notice.js의 검색알고리즘 가져올듯 
+검색하고 정렬이 안됨 검색 이후로 정렬 스크립트를 재호출 해야할것같음
+근데 안됨 HTML에서 이미지 쓰고 JS를 호출하려고 해서 그런가?*/
 
-/*notice.js의 검색알고리즘 가져올듯*/
+@media screen and (max-width: 1400px) {
+    div.main-inner {
+        width: 95%;
+        div.relic-container {
+            div.grid {
+                div.grid-item {
+                    width: 33%;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    div.main-inner {
+        div.relic-category-container {
+            display: flex;
+            width: 100%;
+            height: auto;
+            margin: 40px auto 10px;
+            flex-direction: column;
+            div.relic-category-wrap {
+                width: 100%;
+                height: 40px;
+                justify-content: space-between;
+                div.relic-category {
+                    p {
+                        font-size: 12px;
+                        padding: 0 10px;
+                    }
+                    span {
+                        font-size: 14px;
+                        padding: 0 5px;
+                    }
+                }
+            }
+            div.relic-filter-wrap {
+                width: 100%;
+                height: 40px;
+                margin: 20px 0 0;
+                justify-content: initial;
+                @include box(rgba(0, 0, 0, 0.2));
+                div.relic-filter {
+                    @include box(transparent);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    div.main-inner {
+        div.search-container {
+            input {
+                width: 95%;
+            }
+        }
+        div.relic-container {
+            div.grid {
+                div.grid-item {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 648px){
+    div.main-inner {
+        div.relic-category-container {
+            div.relic-category-wrap {
+                height: auto;
+                justify-content: initial;
+                flex-wrap: wrap;
+                justify-content: center;
+                div.relic-category {
+                    width: 33.33%;
+                    justify-content: start;
+                    &:first-child{
+                        width: 100%;
+                    }
+                    p {
+                        display: flex;
+                        width: 100%;
+                        height: 40px;
+                        justify-content: center;
+                    }
+                }
+            }
+            div.relic-filter-wrap {
+                display: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px){
+    div.main-inner {
+        div.search-container {
+            input {
+                width: 95%;
+            }
+        }
+        div.relic-container {
+            div.grid {
+                div.grid-item {
+                    width: 100%;
+                    &:nth-child(n+5){
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

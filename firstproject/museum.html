@@ -107,6 +107,31 @@
                         </li>
                     </ul>
                 </div>
+                <div class="msubpage-header-inner">
+                    <ul>
+                        <li class="this">
+                            <a href="#">박물관 소개</a>
+                        </li>
+                        <li>
+                            <a href="#">뮤지엄파크 소개</a>
+                        </li>
+                        <li>
+                            <a href="#">미션과 비전</a>
+                        </li>
+                        <li>
+                            <a href="#">MI</a>
+                        </li>
+                        <li>
+                            <a href="#">연혁</a>
+                        </li>
+                        <li>
+                            <a href="#">박물관직원</a>
+                        </li>
+                        <li>
+                            <a href="#">청소년자원봉사</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <!--subpage header-->
         </header>
@@ -128,7 +153,7 @@
             <div class="main-inner">
                 <div class="top-content">
                     <div class="leftside">
-                        <h4>인사말</h4>
+                        <h4 class="mobile-disable">인사말</h4>
                     </div>
                     <div class="rightside">
                         <p class="stitle">경기도박물관을 찾아주신 여러분 <b>진심으로 환영합니다.</b></p>
@@ -158,9 +183,11 @@
             <h2>뉴스레터</h2>
             <p>박물관의 새로운 소식을 받으시려면 뉴스레터에 가입해 주세요</p>
             <div class="subscription">
-                <input type="email" placeholder="이메일을 입력해주세요." />
-                <button type="submit">구독하기</button>
+                <input id="email" type="text" placeholder="이메일을 입력해주세요."/>
+                <button id="emailBtn" type="submit">구독하기</button>
             </div>
+            
+            <p class="email-check-text"></p>
         </div>
         <!--footer-->
         <footer>
@@ -218,11 +245,9 @@
 
         <!--aside upbtn-->
         <aside class="upbtnside">
-            <a href="#">
-                <div class="upbtn">
-                    <img src="./images/common/ic-angle-up-white-24-dp.svg" alt="위로가기버튼" />
-                </div>
-            </a>
+            <div class="upbtn">
+                <img src="./images/common/ic-angle-up-white-24-dp.svg" alt="위로가기버튼" />
+            </div>
         </aside>
         <!--aside upbtn-->
     </body>

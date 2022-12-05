@@ -1,3 +1,4 @@
+// 공지 로테이션
 const SHOWING_CLASS = "showing";
 
 const firstSlide = document.querySelector(".slide:first-child");
@@ -17,24 +18,35 @@ function slide() {
     }
 }
 
-slide();
-setInterval(slide, 3000);
+// 뉴스 swipe
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 
-const LEFTBTN = document.querySelector(".leftbtn");
-const RIGHTTBTN = document.querySelector(".rightbtn");
+    breakpoints: {
+        480: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        1300: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+        },
+    },
+});
 
-let NEWSWRAP = document.querySelector(".news-content-wrap");
-
-let leftcount = 0;
-let rightcount = 0;
-
-LEFTBTN.onclick = function () {
-    leftcount++;
-    rightcount--;
-    NEWSWRAP.style = `transform: translateX(${leftcount * -35}%)`;
-};
-RIGHTTBTN.onclick = function () {
-    leftcount--;
-    rightcount++;
-    NEWSWRAP.style = `transform: translateX(${rightcount * 35}%)`;
-};
+// 스크롤시 텍스트 애니메이션
+// parallax.js 써보기

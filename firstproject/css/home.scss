@@ -26,6 +26,12 @@ div.visual-container {
             left: 0;
             object-fit: cover;
         }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
     }
     div.visual-notice {
         width: 100%;
@@ -35,7 +41,7 @@ div.visual-container {
         }
         div.today-time {
             position: relative;
-            width: 10%;
+            width: 150px;
             line-height: 50px;
             float: left;
             text-align: center;
@@ -71,7 +77,7 @@ div.visual-container {
     }
 
     div.map-link {
-        width: 10%;
+        width: 150px;
         line-height: 50px;
         float: right;
         text-align: center;
@@ -104,47 +110,66 @@ div.visual-container {
 div.notice-container {
     width: 80%;
     height: 80px;
-    margin: 100px auto;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    box-sizing: border-box;
+    margin: 50px auto;
+    position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
 
-    div.notice-title {
+    .notice-title-wrap {
+        width: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
-        position: relative;
-        width: 10%;
-        height: 100%;
-        img {
-            transform: translateY(4px);
-            margin: 0 5px;
+        justify-content: space-between;
+        position: absolute;
+        .notice-title {
+            position: relative;
+            width: 100px;
+            height: 100%;
+            img {
+                transform: translateY(4px);
+                margin: 0 5px;
+            }
+            &::after {
+                content: "";
+                width: 1px;
+                height: 20px;
+                position: absolute;
+                background: rgba(0, 0, 0, 0.2);
+                top: 50%;
+                right: -10px;
+                transform: translateY(-45%);
+            }
         }
-        &::after {
-            content: "";
-            width: 1px;
-            height: 20px;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.2);
-            top: 50%;
-            right: -20px;
-            transform: translateY(-45%);
+        .notice-more {
+            width: 150px;
+            height: 100%;
+
+            img {
+                transition: 200ms;
+            }
+            &:hover img {
+                transform: translateX(10px);
+            }
         }
     }
 
     .notice-content {
         display: flex;
-
-        position: relative;
-        width: 80%;
-        margin-left: 20px;
+        position: absolute;
+        justify-content: center;
+        width: 100%;
         height: 100%;
+
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        box-sizing: border-box;
         .slide {
             display: flex;
+            padding-left: 20px;
             opacity: 0;
             position: absolute;
-            width: 100%;
+            width: 80%;
             height: 100%;
             transition: 300ms;
             a {
@@ -171,29 +196,31 @@ div.notice-container {
             opacity: 1;
         }
     }
-
-    div.notice-more {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 10%;
-        height: 100%;
-
-        img {
-            transition: 200ms;
-        }
-        &:hover img {
-            transform: translateX(10px);
-        }
-    }
 }
 
 /*notice*/
 
 /*news*/
+
 div.news-container {
     width: 80%;
-    margin: 30px auto 10px;
+    margin: 30px auto 0;
+    padding-bottom: 100px;
+    position: relative;
+
+    div.ani-text {
+        width: 100vw;
+        height: 100%;
+        white-space: nowrap;
+        background: url("../images/bgtext/img-typo-01.svg") no-repeat;
+        position: absolute;
+        z-index: -1;
+        transition: 600ms;
+        background-position-y: 100%;
+        // 기준 모르겠음
+        // 텍스트가 보일때부터 스크롤 내릴시 오른쪽으로 이동 offset-top 이용해보기
+    }
+
     div.news-title {
         margin: 30px 0;
         position: relative;
@@ -203,32 +230,31 @@ div.news-container {
             font-size: 40px;
             letter-spacing: 3px;
         }
+    }
+}
+div.news-slide-btn {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 0;
 
-        div.news-slide-btn {
-            display: flex;
-            width: 100%;
-            position: absolute;
+    div {
+        display: flex;
+        width: 60px;
+        height: 60px;
+        @include box(#1f5153);
+        background: transparent url("../images/common/ic-angle-legt-black-24-dp.svg") no-repeat center center;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: 300ms;
 
-            justify-content: flex-end;
-
-            div {
-                display: flex;
-                width: 60px;
-                height: 60px;
-                @include box(#1f5153);
-                background: transparent url("../images/common/ic-angle-legt-black-24-dp.svg") no-repeat center center;
-                margin-left: 20px;
-                cursor: pointer;
-                transition: 300ms;
-
-                &:hover {
-                    background: #1f5153 url("../images/common/ic-angle-left-white-24-dp.svg") no-repeat center center;
-                }
-            }
-            .rightbtn {
-                transform: rotate(180deg);
-            }
+        &:hover {
+            background: #1f5153 url("../images/common/ic-angle-left-white-24-dp.svg") no-repeat center center;
         }
+    }
+    .rightbtn {
+        transform: rotate(180deg);
     }
 }
 
@@ -236,12 +262,16 @@ div.news-content-wrap {
     display: inline-block;
     white-space: nowrap;
     width: 100%;
+    font-size: 0;
 
-    div.news-content {
+    transition: 300ms;
+
+    
+    div.news-content{
         display: inline-block;
         position: relative;
         width: 30%;
-        margin-right: 5%;
+        margin-right: 50px;
         left: -50px;
         a {
             display: block;
@@ -271,7 +301,8 @@ div.news-content-wrap {
                     background: #1f5153;
                     transition: 500ms;
                     opacity: 0;
-                    p {
+                    p{
+                        font-size: 14px;
                         color: white;
                     }
                 }
@@ -319,52 +350,26 @@ div.news-content-wrap {
     }
 }
 
-
-
-/*news*/
-
-/* div.relic-container {
+div.relic-container {
     width: 80%;
-    margin: 100px auto;
-    div.relic-title {
-        p {
-            text-align: center;
-            font-size: 40px;
-        }
+    margin: 20px auto -30px;
+    padding-bottom: 100px;
+    position: relative;
 
-        &::after {
-            margin-top: 100px;
-            width: 100%;
-            content: "";
-            display: block;
-            border-top: 2px solid black;
-        }
+    div.ani-text {
+        width: 100vw;
+        height: 100%;
+        white-space: nowrap;
+        background: url("../images/bgtext/img-typo-02.svg") no-repeat;
+        position: absolute;
+
+        background-position-y: 100%;
+        z-index: -1;
+        // 기준이 뭐지?
+        // 텍스트가 보일때부터 스크롤 내릴시 오른쪽으로 이동 offset-top 이용해보기
     }
 
-    div.relic-wrap {
-        margin-top: 20px;
-        display: flex;
-        div.relic {
-            width: 25%;
-            padding: 10px;
-            overflow: hidden;
-            img {
-                display: block;
-                min-width: 100%;
-                max-width: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-}
- */
-
-div.relic-container{
-    width: 80%;
-    margin: 100px auto;
-
     div.relic-title {
-        
         width: 100%;
         p {
             text-align: center;
@@ -380,18 +385,75 @@ div.relic-container{
         }
     }
 
-
-
-    div.relic-wrap{
-        column-count: 4;
-        @include box(red);
-        div.relic{
-            width: 100%;
-            overflow: hidden;
-            @include box(blue);
-            img{
+    div.grid {
+        width: 100%;
+        counter-reset: grid-item;
+        margin-top: 3%;
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        div.grid-item {
+            width: 25%;
+            float: left;
+            padding: 1%;
+            div.relic-wrap {
                 width: 100%;
-                object-fit: cover;
+                background: #fafafa;
+                a {
+                    div.relic-img {
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        overflow: hidden;
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                            transition: 300ms;
+                        }
+                        div.relic-more {
+                            opacity: 0;
+                            position: absolute;
+                            width: 60%;
+                            height: 50px;
+                            background: #1f5153;
+                            transition: 300ms;
+                            p {
+                                display: flex;
+                                width: 100%;
+                                height: 100%;
+                                justify-content: center;
+                                align-items: center;
+                                color: white;
+                            }
+                        }
+                    }
+                    div.relic-text {
+                        width: 100%;
+                        padding: 20px;
+                        p {
+                            &:first-child {
+                                font-size: 14px;
+                            }
+                            &:last-child {
+                                font-size: 18px;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        div.relic-img img {
+                            filter: brightness(0.5);
+                            transform: scale(1.1);
+                        }
+                        div.relic-img div.relic-more {
+                            opacity: 1;
+                        }
+                    }
+                }
             }
         }
     }
@@ -399,7 +461,6 @@ div.relic-container{
 /*shortcut*/
 div.shortcut {
     width: 100%;
-    height: 400px;
     ul {
         width: 100%;
         font-size: 0;
@@ -423,6 +484,7 @@ div.shortcut {
                 }
                 div.shortcut-text-tray {
                     position: absolute;
+                    width: 100%;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
@@ -539,54 +601,6 @@ div.circle3 {
     opacity: 0.8;
 }
 
-/* html,
-body {
-    position: relative;
-    height: 100%;
-}
-
-body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-} */
-
-/*NEWS 슬라이드 CSS*/
-/* .swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} */
-/*NEWS 슬라이드 CSS*/
-
 @keyframes heartAnimation {
     0% {
         transform: scale(1);
@@ -604,7 +618,6 @@ body {
         transform: scale(1);
     }
 }
-
 @keyframes circleWave1 {
     0% {
         transform: scale(1);
@@ -633,5 +646,427 @@ body {
     100% {
         transform: scale(2.2);
         opacity: 0;
+    }
+}
+@media screen and (max-width: 1400px) {
+    div.visual-container {
+        width: 100%;
+        div.map-link {
+            margin-right: 20px;
+        }
+    }
+    div.relic-container {
+        div.grid {
+            div.grid-item {
+                width: 33%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    div.news-slide-btn{
+        display: none;
+    }
+    div.visual-container {
+        div.map-link {
+            a {
+                display: none;
+            }
+        }
+    }
+    div.visual-notice {
+        div.time-notice {
+            span {
+                font-size: 14px;
+            }
+        }
+    }
+    div.shortcut {
+        ul {
+            display: flex;
+            flex-direction: column;
+            li {
+                width: 100%;
+                height: 150px;
+                a {
+                    div.shortcut-image-tray {
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    div.shortcut-text-tray {
+                        line-height: 1.5;
+                        p {
+                            &:nth-child(1) {
+                                font-size: 24px;
+                            }
+                            &:nth-child(2) {
+                                font-size: 14px;
+                            }
+                        }
+                        img {
+                            margin: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    div.notice-container {
+        width: 100%;
+        height: 70px;
+        .notice-title-wrap {
+            width: 95%;
+        }
+        .notice-content {
+            width: 95%;
+            .silde {
+                width: 80%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 900px) {
+    div.notice-container {
+        .notice-content {
+            .slide {
+                width: 70%;
+            }
+        }
+    }
+    div.visual-container {
+        div.visual-notice {
+            width: 100%;
+            height: 60px;
+            div {
+                display: inline-block;
+            }
+            div.today-time {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80px;
+                height: 100%;
+                line-height: 1.2;
+                background: #1f5153;
+                img {
+                    display: none;
+                }
+                span {
+                    width: 80%;
+                    color: white;
+                    font-size: 14px;
+                    word-break: keep-all;
+                    text-align: left;
+                }
+            }
+
+            div.time-notice {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-self: flex-start;
+                span {
+                    display: flex;
+                    margin-left: 10px;
+                    font-size: 12px;
+                    font-weight: 0;
+                    line-height: 1.4;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .circle1,
+    .circle2,
+    .circle3 {
+        display: none;
+    }
+    aside.donationbtnside {
+        right: 50px;
+        left: auto;
+    }
+    div.visual-container {
+        width: 100%;
+        div.visual-video {
+            width: 100%;
+            height: 700px;
+            padding-top: 0;
+            video {
+                display: none;
+            }
+            img {
+                display: block;
+            }
+        }
+        div.visual-notice {
+            width: 100%;
+            height: 60px;
+            div {
+                display: inline-block;
+            }
+            div.today-time {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80px;
+                height: 100%;
+                line-height: 1.2;
+                background: #1f5153;
+                img {
+                    display: none;
+                }
+                span {
+                    width: 80%;
+                    color: white;
+                    font-size: 14px;
+                    word-break: keep-all;
+                    text-align: left;
+                }
+            }
+
+            div.time-notice {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-self: flex-start;
+                span {
+                    display: flex;
+                    margin-left: 10px;
+                    font-size: 12px;
+                    font-weight: 0;
+                    line-height: 1.4;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    div.notice-container {
+        width: 95%;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        margin: 40px auto;
+
+        .notice-title-wrap {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            .notice-title {
+                display: flex;
+                align-items: center;
+                position: relative;
+                width: 100px;
+                height: 100%;
+                font-size: 18px;
+                font-weight: 500;
+                img {
+                    display: none;
+                }
+                &::after {
+                    display: none;
+                }
+            }
+            .notice-more {
+                display: flex;
+                align-items: center;
+                width: auto;
+                justify-content: flex-end;
+                font-size: 14px;
+                font-weight: 500;
+                img {
+                    content: url("../images/common/ic-angle-right-black-24-dp.svg");
+                }
+                &:hover img {
+                    display: none;
+                }
+            }
+        }
+
+        .notice-content {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            width: 100%;
+            height: 80px;
+            .slide {
+                display: flex;
+                padding-left: 0;
+                opacity: 0;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transition: 300ms;
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    span {
+                        line-height: 1.5;
+                        display: flex;
+                        height: auto;
+                        align-items: center;
+                        &:first-child {
+                            font-size: 12px;
+                            color: #999999;
+                            width: auto;
+                            justify-content: initial;
+                        }
+                        &:last-child {
+                            font-size: 14px;
+                            font-weight: 500;
+                            width: auto;
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+
+            .showing {
+                opacity: 1;
+            }
+        }
+    }
+    div.news-container {
+        div.ani-text {
+            display: none;
+        }
+
+        div.news-title {
+            h2 {
+                font-size: 24px;
+            }
+            div.news-slide-btn {
+                display: none;
+            }
+        }
+    }
+    div.news-content-wrap {
+        div.news-content {
+            a {
+                p.news-period {
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #666;
+                    margin-bottom: 6px;
+                }
+                p.news-title {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    div.relic-container {
+        width: 95%;
+        margin: 0 auto;
+        padding-bottom: 50px;
+        position: relative;
+        div.ani-text {
+            display: none;
+        }
+        div.relic-title {
+            width: 100%;
+            p {
+                text-align: center;
+                font-size: 24px;
+                padding-bottom: 18px;
+                font-weight: bold;
+            }
+
+            &::after {
+                margin-top: initial;
+                width: 100%;
+                content: "";
+                display: block;
+                border-top: 1px solid black;
+            }
+        }
+
+        div.grid {
+            width: 100%;
+            counter-reset: grid-item;
+            margin-top: 3%;
+            &:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            div.grid-item {
+                width: 50%;
+            }
+        }
+    }
+    div.shortcut {
+        ul {
+            display: flex;
+            flex-direction: column;
+            li {
+                width: 100%;
+                height: 100px;
+                a {
+                    div.shortcut-image-tray {
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    div.shortcut-text-tray {
+                        line-height: 1.5;
+                        p {
+                            &:nth-child(1) {
+                                font-size: 24px;
+                            }
+                            &:nth-child(2) {
+                                font-size: 14px;
+                            }
+                        }
+                        img {
+                            margin: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    div.news-content-wrap {
+        div.news-content {
+            width: 100%;
+        }
+    }
+
+    div.relic-container {
+        width: 95%;
+        div.grid {
+            div.grid-item {
+                width: 100%;
+                float: left;
+                &:nth-child(n + 5) {
+                    display: none;
+                }
+            }
+        }
     }
 }

@@ -233,13 +233,15 @@ div.news-container div.news-title h2 {
   font-size: 40px;
   letter-spacing: 3px;
 }
-div.news-container div.news-title div.news-slide-btn {
-  display: flex;
+
+div.news-slide-btn {
   width: 100%;
   position: absolute;
+  display: flex;
   justify-content: flex-end;
+  top: 0;
 }
-div.news-container div.news-title div.news-slide-btn div {
+div.news-slide-btn div {
   display: flex;
   width: 60px;
   height: 60px;
@@ -250,10 +252,10 @@ div.news-container div.news-title div.news-slide-btn div {
   cursor: pointer;
   transition: 300ms;
 }
-div.news-container div.news-title div.news-slide-btn div:hover {
+div.news-slide-btn div:hover {
   background: #1f5153 url("../images/common/ic-angle-left-white-24-dp.svg") no-repeat center center;
 }
-div.news-container div.news-title div.news-slide-btn .rightbtn {
+div.news-slide-btn .rightbtn {
   transform: rotate(180deg);
 }
 
@@ -302,6 +304,7 @@ div.news-content-wrap div.news-content a div.news-wrap div.news-more {
   opacity: 0;
 }
 div.news-content-wrap div.news-content a div.news-wrap div.news-more p {
+  font-size: 14px;
   color: white;
 }
 div.news-content-wrap div.news-content a p.news-badge {
@@ -685,19 +688,16 @@ div.circle3 {
   div.relic-container div.grid div.grid-item {
     width: 33%;
   }
-  div.news-content-wrap div.news-content {
-    width: 40%;
-  }
 }
 @media screen and (max-width: 1024px) {
+  div.news-slide-btn {
+    display: none;
+  }
   div.visual-container div.map-link a {
     display: none;
   }
   div.visual-notice div.time-notice span {
     font-size: 14px;
-  }
-  div.news-content-wrap div.news-content {
-    width: 55%;
   }
   div.shortcut ul {
     display: flex;
@@ -952,10 +952,6 @@ div.circle3 {
   }
   div.news-container div.news-title div.news-slide-btn {
     display: none;
-  }
-  div.news-content-wrap div.news-content {
-    width: 80%;
-    left: 0;
   }
   div.news-content-wrap div.news-content a p.news-period {
     font-size: 12px;

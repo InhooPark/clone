@@ -18,34 +18,35 @@ function slide() {
     }
 }
 
-// 뉴스 좌우클릭 제한이 안걸려있음 LOOP도 없고 구림 다음엔 제대로
-slide();
-setInterval(slide, 3000);
+// 뉴스 swipe
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 
-const LEFTBTN = document.querySelector(".leftbtn");
-const RIGHTTBTN = document.querySelector(".rightbtn");
-
-let NEWSWRAP = document.querySelector(".news-content-wrap");
-
-let leftcount = 0;
-let rightcount = 0;
-let moveP;
-
-LEFTBTN.onclick = function () {
-    moveP = document.querySelector('.news-content').offsetWidth;
-    console.log(moveP);
-    // 마진값을 더해줘도 왜 차이가 나는걸까 나중에
-    leftcount++;
-    rightcount--;
-    NEWSWRAP.style = `transform: translateX(${-(leftcount * moveP + 50)}px)`;
-};
-RIGHTTBTN.onclick = function () {
-    moveP = document.querySelector('.news-content').offsetWidth;
-    console.log(moveP);
-    leftcount--;
-    rightcount++;
-    NEWSWRAP.style = `transform: translateX(${(rightcount * moveP + 50)}px)`;
-};
+    breakpoints: {
+        480: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        1300: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+        },
+    },
+});
 
 // 스크롤시 텍스트 애니메이션
 // parallax.js 써보기

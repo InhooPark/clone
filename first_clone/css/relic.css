@@ -1,0 +1,290 @@
+@charset "UTF-8";
+@import url(./common.css);
+.is-hidden {
+  display: none;
+}
+
+main {
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  position: relative;
+}
+
+div.bgtext {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  z-index: -1;
+  overflow: hidden;
+}
+div.bgtext img {
+  -webkit-animation: textani 1000ms;
+          animation: textani 1000ms;
+}
+
+@-webkit-keyframes textani {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes textani {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.is-hidden {
+  display: none;
+}
+
+div.main-inner {
+  width: 70%;
+  margin: 50px auto;
+}
+div.main-inner div.search-container {
+  text-align: center;
+}
+div.main-inner div.search-container input {
+  width: 50%;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  border-bottom: 2px solid black;
+  /* 앞쪽에 돋보기 뒤쪽에 취소버튼 생기면 좋을듯 취소는 기본이니 돋보기 앞쪽에 */
+}
+div.main-inner div.search-container input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+div.main-inner div.search-container input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+div.main-inner div.search-container input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+div.main-inner div.relic-category-container {
+  display: flex;
+  width: 100%;
+  margin: 40px auto;
+  height: auto;
+  justify-content: space-between;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap {
+  height: 50px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category:first-child {
+  border: none;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category p {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  height: 100%;
+  font-weight: 500;
+  background-color: black;
+  box-sizing: border-box;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category div.relic-category-tag {
+  height: 100%;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category div.relic-category-tag img {
+  height: 100%;
+}
+div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category span {
+  width: auto;
+  padding: 0 15px;
+}
+div.main-inner div.relic-category-container div.relic-filter-wrap {
+  display: flex;
+  justify-content: end;
+  width: 120px;
+}
+div.main-inner div.relic-category-container div.relic-filter-wrap div.relic-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  border: 1px solid #1f5153;
+  box-sizing: border-box;
+}
+div.main-inner div.relic-category-container div.relic-filter-wrap div.relic-filter span {
+  padding: 0;
+}
+div.main-inner div.relic-container div.grid {
+  width: 100%;
+  counter-reset: grid-item;
+  margin-top: 3%;
+}
+div.main-inner div.relic-container div.grid:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+div.main-inner div.relic-container div.grid div.grid-item {
+  width: 25%;
+  float: left;
+  padding: 1%;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap {
+  width: 100%;
+  background: #fafafa;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a div.relic-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a div.relic-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 300ms;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a div.relic-img div.relic-more {
+  opacity: 0;
+  position: absolute;
+  width: 60%;
+  height: 50px;
+  background: #1f5153;
+  transition: 300ms;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a div.relic-img div.relic-more p {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a div.relic-text {
+  width: 100%;
+  padding: 20px;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a div.relic-text p:first-child {
+  font-size: 14px;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a div.relic-text p:last-child {
+  font-size: 18px;
+  font-weight: 500;
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a:hover div.relic-img img {
+  filter: brightness(0.5);
+  transform: scale(1.1);
+}
+div.main-inner div.relic-container div.grid div.grid-item div.relic-wrap a:hover div.relic-img div.relic-more {
+  opacity: 1;
+}
+
+/*notice.js의 검색알고리즘 가져올듯 
+검색하고 정렬이 안됨 검색 이후로 정렬 스크립트를 재호출 해야할것같음
+근데 안됨 HTML에서 이미지 쓰고 JS를 호출하려고 해서 그런가?*/
+@media screen and (max-width: 1400px) {
+  div.main-inner {
+    width: 95%;
+  }
+  div.main-inner div.relic-container div.grid div.grid-item {
+    width: 33%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  div.main-inner div.relic-category-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: 40px auto 10px;
+    flex-direction: column;
+  }
+  div.main-inner div.relic-category-container div.relic-category-wrap {
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+  }
+  div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category p {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+  div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category span {
+    font-size: 14px;
+    padding: 0 5px;
+  }
+  div.main-inner div.relic-category-container div.relic-filter-wrap {
+    width: 100%;
+    height: 40px;
+    margin: 20px 0 0;
+    justify-content: initial;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+  }
+  div.main-inner div.relic-category-container div.relic-filter-wrap div.relic-filter {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 768px) {
+  div.main-inner div.search-container input {
+    width: 95%;
+  }
+  div.main-inner div.relic-container div.grid div.grid-item {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 648px) {
+  div.main-inner div.relic-category-container div.relic-category-wrap {
+    height: auto;
+    justify-content: initial;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category {
+    width: 33.33%;
+    justify-content: start;
+  }
+  div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category:first-child {
+    width: 100%;
+  }
+  div.main-inner div.relic-category-container div.relic-category-wrap div.relic-category p {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+  }
+  div.main-inner div.relic-category-container div.relic-filter-wrap {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  div.main-inner div.search-container input {
+    width: 95%;
+  }
+  div.main-inner div.relic-container div.grid div.grid-item {
+    width: 100%;
+  }
+  div.main-inner div.relic-container div.grid div.grid-item:nth-child(n+5) {
+    display: none;
+  }
+}/*# sourceMappingURL=relic.css.map */

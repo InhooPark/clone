@@ -1,0 +1,316 @@
+@import url(./common.css);
+main {
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  position: relative;
+}
+
+div.bgtext {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  z-index: -1;
+  overflow: hidden;
+}
+div.bgtext img {
+  -webkit-animation: textani 1000ms;
+          animation: textani 1000ms;
+}
+
+@-webkit-keyframes textani {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes textani {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+div.main-inner {
+  width: 70%;
+  margin: 50px auto;
+}
+div.main-inner div.menu-container {
+  height: 70px;
+}
+div.main-inner div.menu-container ul {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+div.main-inner div.menu-container ul li {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+div.main-inner div.menu-container ul li a {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+}
+div.main-inner div.menu-container ul li::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 24px;
+  background-color: #e0e0e0;
+  position: absolute;
+  right: 0;
+  top: 23px;
+}
+div.main-inner div.menu-container ul li:last-child::after {
+  display: none;
+}
+div.main-inner div.menu-container ul li.this::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  border-bottom: 2px solid black;
+  transform: translateY(-100%);
+}
+div.main-inner div.ongoing-top {
+  margin-top: 60px;
+}
+div.main-inner div.ongoing-top h4 {
+  display: inline-block;
+  font-size: 30px;
+}
+div.main-inner div.ongoing-top span {
+  float: right;
+}
+div.main-inner div.ongoing-top span a {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+div.main-inner div.ongoing-top span a img {
+  margin-left: 10px;
+  transition: 200ms;
+}
+div.main-inner div.ongoing-top span a:hover img {
+  transform: translateX(10px);
+}
+div.main-inner div.ongoing-container a div.ongoing-content {
+  display: flex;
+  padding: 30px 0;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-left {
+  width: 25.5%;
+  overflow: hidden;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-left img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-right {
+  width: 74.5%;
+  margin-left: 3%;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-right p.right-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-right p.right-title {
+  font-size: 25px;
+  line-height: 2;
+  font-weight: bold;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-right p.right-text {
+  font-size: 16px;
+  height: 5em;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-right ul {
+  display: inline-block;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-right ul li {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 14px;
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-right ul li::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translate(12px, 3px);
+}
+div.main-inner div.ongoing-container a div.ongoing-content div.oc-right ul li:last-child::after {
+  display: none;
+}
+div.main-inner div.ongoing-container a::before {
+  content: "";
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+div.main-inner div.ongoing-container a::before {
+  content: "";
+  margin-top: 30px;
+}
+div.main-inner div.ongoing-container a:last-child::after {
+  content: "";
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 1024px) {
+  div.main-inner div.ongoing-container a div.ongoing-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-left {
+    width: 100%;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-right {
+    width: 100%;
+    margin-left: 0;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-right p.right-badge {
+    padding: 5px 12px;
+    margin: 20px 0 10px;
+    font-size: 10px;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-right p.right-title {
+    font-size: 18px;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-right p.right-text {
+    font-size: 0;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-right ul {
+    display: block;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-right ul li {
+    display: block;
+    margin-right: initial;
+    font-size: 12px;
+    line-height: 2;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-right ul li b {
+    padding-right: 10px;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content div.oc-right ul li::after {
+    display: none;
+  }
+  div.main-inner div.ongoing-container a::before {
+    content: "";
+    display: block;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  div.main-inner div.ongoing-container a::before {
+    content: "";
+    margin-top: 30px;
+  }
+  div.main-inner div.ongoing-container a:last-child::after {
+    content: "";
+    display: block;
+    margin: 30px 0 100px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+@media screen and (max-width: 768px) {
+  .subpage-header {
+    display: none;
+  }
+  div.main-inner {
+    width: 95%;
+  }
+  div.main-inner div.menu-container {
+    height: auto;
+  }
+  div.main-inner div.menu-container ul {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+    border-right: none;
+    height: auto;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  div.main-inner div.menu-container ul li {
+    width: 50%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  div.main-inner div.menu-container ul li a {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+  }
+  div.main-inner div.menu-container ul li:nth-child(even), div.main-inner div.menu-container ul li:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  div.main-inner div.menu-container ul li::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: #e0e0e0;
+    position: absolute;
+    right: 0;
+    top: 16px;
+  }
+  div.main-inner div.menu-container ul li:nth-child(even)::after {
+    display: none;
+  }
+  div.main-inner div.menu-container ul li.this::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    border-bottom: 2px solid black;
+    transform: translateY(-100%);
+  }
+  div.main-inner div.ongoing-top {
+    margin-top: 20px;
+  }
+  div.main-inner div.ongoing-top h4 {
+    display: inline-block;
+    font-size: 22px;
+  }
+  div.main-inner div.ongoing-top span {
+    float: right;
+  }
+  div.main-inner div.ongoing-top span a {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  div.main-inner div.ongoing-top span a img {
+    margin-left: 10px;
+    transition: initial;
+  }
+  div.main-inner div.ongoing-top span a:hover img {
+    transform: initial;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content {
+    display: flex;
+    padding-bottom: 20px;
+  }
+  div.main-inner div.ongoing-container a div.ongoing-content::before {
+    content: "";
+    margin: 0px;
+  }
+}/*# sourceMappingURL=education.css.map */

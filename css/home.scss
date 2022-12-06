@@ -470,6 +470,8 @@ div.shortcut {
             a {
                 position: relative;
                 display: block;
+                width: 100%;
+                height: 100%;
                 div.shortcut-image-tray {
                     width: 100%;
                     height: 100%;
@@ -490,6 +492,7 @@ div.shortcut {
                     transform: translate(-50%, -50%);
                     text-align: center;
                     line-height: 2;
+                    z-index: 2;
                     p {
                         &:nth-child(1) {
                             color: white;

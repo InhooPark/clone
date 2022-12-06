@@ -327,7 +327,6 @@ div.sub-header-title h2 {
   margin: 130px 0 110px;
 }
 
-/*footer*/
 /*newsletter*/
 div.newsletter {
   text-align: center;
@@ -379,6 +378,7 @@ div.newsletter div.subscription button {
 }
 
 /*newsletter*/
+/*footer*/
 footer {
   padding: 65px 10%;
   background: black;
@@ -415,7 +415,7 @@ footer div.top-foot div.tf-right div.tf-right-wrap ul li::after {
   background-color: white;
   width: 1px;
   height: 12px;
-  margin-left: 20px;
+  margin: 0 20px;
 }
 footer div.top-foot div.tf-right div.tf-right-wrap ul li:last-child::after {
   display: none;

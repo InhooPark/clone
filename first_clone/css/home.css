@@ -453,6 +453,7 @@ div.shortcut ul li {
 }
 div.shortcut ul li a {
   position: relative;
+  display: block;
 }
 div.shortcut ul li a div.shortcut-image-tray {
   width: 100%;

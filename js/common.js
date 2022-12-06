@@ -20,8 +20,7 @@ window.addEventListener('scroll', function() {
         scTopbtn.classList.remove(DISABLE);
         scSubMenu.classList.remove(SUBSCROLL);
     }
-})
-
+});
 
 
 // 업버튼 스무스하게 위로 올라가기

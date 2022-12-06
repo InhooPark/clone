@@ -1,7 +1,7 @@
 // 공지 로테이션
 const SHOWING_CLASS = "showing";
 
-const firstSlide = document.querySelector(".slide:first-child");
+const firstSlide = document.querySelector(".notice-slide:first-child");
 
 function slide() {
     const currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
@@ -17,6 +17,8 @@ function slide() {
         firstSlide.classList.add(SHOWING_CLASS);
     }
 }
+slide();
+setInterval(slide, 3000);
 
 // 뉴스 swipe
 var swiper = new Swiper(".mySwiper", {

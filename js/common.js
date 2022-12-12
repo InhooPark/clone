@@ -1,3 +1,10 @@
+
+$('body').prepend('<header>');
+$('body').append('<footer>');
+
+$('header').load('./inc.html header>div');
+$('footer').load('./inc.html footer>div');
+
 // 업버튼 fixed, scale 애니메이션
 const scTopbtn = document.querySelector('.upbtnside');
 const DISABLE = 'disable'
@@ -49,3 +56,5 @@ mailBtn.addEventListener('mouseup', function() {
         mailCheckText.textContent = `잘못된 이메일 주소입니다.`;
     }
 })
+
+

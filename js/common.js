@@ -1,34 +1,30 @@
+$("body").prepend("<header>");
+$("body").append("<footer>");
 
-$('body').prepend('<header>');
-$('body').append('<footer>');
-
-$('header').load('./inc.html header>div');
-$('footer').load('./inc.html footer>div');
+$("header").load("./inc.html header>div", head);
+$("footer").load("./inc.html footer>div");
 
 // 업버튼 fixed, scale 애니메이션
-const scTopbtn = document.querySelector('.upbtnside');
-const DISABLE = 'disable'
+const scTopbtn = document.querySelector(".upbtnside");
+const DISABLE = "disable";
 
-const scSubMenu = document.querySelector('.subpage-header');
-const SUBSCROLL = 'sub-scroll';
+const scSubMenu = document.querySelector(".subpage-header");
+const SUBSCROLL = "sub-scroll";
 
-let header = document.querySelector('header');
+let header = document.querySelector("header");
 let headerHeight = header.offsetHeight;
 
-
-window.addEventListener('scroll', function() {
+window.addEventListener("scroll", function () {
     let scroll = window.scrollY;
 
-    if(scroll >= headerHeight){
+    if (scroll >= headerHeight) {
         scTopbtn.classList.add(DISABLE);
-        scSubMenu.classList.add(SUBSCROLL);
-    }
-    else{
+        /*         scSubMenu.classList.add(SUBSCROLL); */
+    } else {
         scTopbtn.classList.remove(DISABLE);
-        scSubMenu.classList.remove(SUBSCROLL);
+        /* scSubMenu.classList.remove(SUBSCROLL); */
     }
 });
-
 
 // 업버튼 스무스하게 위로 올라가기
 document.querySelector(".upbtn").addEventListener("mouseup", () => {
@@ -40,21 +36,40 @@ document.querySelector(".upbtn").addEventListener("mouseup", () => {
 });
 
 // 뉴스레터 판정
-const mailBtn = document.getElementById('emailBtn');
-const mailCheckText = document.querySelector('.email-check-text')
+const mailBtn = document.getElementById("emailBtn");
+const mailCheckText = document.querySelector(".email-check-text");
 
-mailBtn.addEventListener('mouseup', function() {
-    const mailCheck = document.getElementById('email').value;
+mailBtn.addEventListener("mouseup", function () {
+    const mailCheck = document.getElementById("email").value;
     check = /\S+@+\S+.+\S/;
-    if(check.test(mailCheck)){
+    if (check.test(mailCheck)) {
         mailCheckText.textContent = `입력하신 이메일 주소(${mailCheck})로 확인 메일을 보내드렸습니다.`;
-    }
-    else if(mailCheck == ''){
+    } else if (mailCheck == "") {
         mailCheckText.textContent = `이메일 주소를 입력하세요.`;
-    }
-    else{
+    } else {
         mailCheckText.textContent = `잘못된 이메일 주소입니다.`;
     }
-})
+});
 
 
+function test(){
+    if (document.location.href.split("/")[3] == "index.html") {
+        $(".main-menu > ul > li").find(">a").css("color", "black");
+        localStorage.clear();
+    }
+}
+
+
+function head() {
+    let idx = localStorage.idx;
+    $(".main-menu > ul > li").eq(idx).find(">a").css("color", "red");
+    test();
+
+
+    
+    
+    $(".main-menu > ul > li").click(function () {
+        idx = $(this).index();
+        localStorage.idx = idx;
+    });
+}

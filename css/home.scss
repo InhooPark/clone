@@ -212,13 +212,14 @@ div.news-container {
         width: 100vw;
         height: 100%;
         white-space: nowrap;
-        background: url("../images/bgtext/img-typo-01.svg") no-repeat;
         position: absolute;
         z-index: -1;
-        transition: 600ms;
-        background-position-y: 100%;
-        // 기준 모르겠음
-        // 텍스트가 보일때부터 스크롤 내릴시 오른쪽으로 이동 offset-top 이용해보기
+        transition: 2000ms;
+        top: 90%;
+        left: 100%;
+        &.ani-text.active {
+            left: 0%;
+        }
     }
 
     div.news-title {
@@ -356,16 +357,17 @@ div.relic-container {
     position: relative;
 
     div.ani-text {
-        width: 100vw;
+        width: 100%;
         height: 100%;
         white-space: nowrap;
-        background: url("../images/bgtext/img-typo-02.svg") no-repeat;
         position: absolute;
-
-        background-position-y: 100%;
         z-index: -1;
-        // 기준이 뭐지?
-        // 텍스트가 보일때부터 스크롤 내릴시 오른쪽으로 이동 offset-top 이용해보기
+        transition: 2000ms;
+        top: 90%;
+        left: 100%;
+        &.ani-text.active {
+            left: 0%;
+        }
     }
 
     div.relic-title {
@@ -950,10 +952,6 @@ div.circle3 {
         }
     }
     div.news-container {
-        div.ani-text {
-            display: none;
-        }
-
         div.news-title {
             h2 {
                 font-size: 24px;
@@ -984,9 +982,6 @@ div.circle3 {
         margin: 0 auto;
         padding-bottom: 50px;
         position: relative;
-        div.ani-text {
-            display: none;
-        }
         div.relic-title {
             width: 100%;
             p {

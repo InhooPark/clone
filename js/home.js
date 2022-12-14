@@ -52,3 +52,17 @@ var swiper = new Swiper(".mySwiper", {
 
 // 스크롤시 텍스트 애니메이션
 // parallax.js 써보기
+
+const ANITEXT = document.querySelectorAll('.ani-text');
+// 하긴 했는데 두번째는 masonry가 온로드뒤에 정리를 해야 좌표를 제대로 잡는데 그게 안되네
+
+window.addEventListener('scroll', function(){
+    ANITEXT.forEach(function(value){
+        if(value.offsetTop + window.innerHeight*0.5 < window.pageYOffset){
+            value.classList.add('active');
+        }
+        else{
+            value.classList.remove('active');
+        }
+    })
+})

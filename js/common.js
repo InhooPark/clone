@@ -19,7 +19,7 @@ window.addEventListener("scroll", function () {
 
     if (scroll >= headerHeight) {
         scTopbtn.classList.add(DISABLE);
-        /*         scSubMenu.classList.add(SUBSCROLL); */
+        /* scSubMenu.classList.add(SUBSCROLL); */
     } else {
         scTopbtn.classList.remove(DISABLE);
         /* scSubMenu.classList.remove(SUBSCROLL); */
@@ -52,24 +52,23 @@ mailBtn.addEventListener("mouseup", function () {
 });
 
 
-function test(){
+function indexTest(){
     if (document.location.href.split("/")[3] == "index.html") {
         $(".main-menu > ul > li").find(">a").css("color", "black");
         localStorage.clear();
     }
 }
 
-
+let idx = localStorage.idx;
 function head() {
-    let idx = localStorage.idx;
+    console.log();
     $(".main-menu > ul > li").eq(idx).find(">a").css("color", "red");
-    test();
+    indexTest();
 
-
-    
-    
     $(".main-menu > ul > li").click(function () {
         idx = $(this).index();
         localStorage.idx = idx;
     });
 }
+//이거 나중에 css값 변경이 아니라 클래스 추가로 바꾸고 페이지별로 본인li에 적용해둬야할듯
+//이유는 url 타고 접속할때도 뜨게 만들고 싶기 때문
